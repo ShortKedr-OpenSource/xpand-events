@@ -1,0 +1,33 @@
+﻿<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#+
+    public string BuildTemplateDefinitionParams(int paramCount) {
+        if (paramCount == 0) return "";
+        if (paramCount == 1) return "<T>";
+        StringBuilder builder = new StringBuilder("<");
+        for (int i = 1; i <= paramCount; i++) {
+            builder.Append($"T{i}" + ((i != paramCount) ? ", " : ">"));
+        }
+        return builder.ToString();
+    }
+
+    public string BuildTemplateMethodParams(int paramCount) {
+        if (paramCount == 0) return "";
+        if (paramCount == 1) return "T value";
+        StringBuilder builder = new StringBuilder();
+        for (int i = 1; i <= paramCount; i++) {
+            builder.Append($"T{i} value{i}" + ((i != paramCount) ? ", " : ""));
+        }
+        return builder.ToString();
+    }
+
+    public string BuildTemplateUseParams(int paramCount) {
+        if (paramCount == 0) return "";
+        if (paramCount == 1) return "value";
+        StringBuilder builder = new StringBuilder("");
+        for (int i = 1; i <= paramCount; i++) {
+            builder.Append($"value{i}" + ((i != paramCount) ? ", " : ""));
+        }
+        return builder.ToString();
+    }
+#>

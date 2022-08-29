@@ -3,8 +3,7 @@
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
         <RootNamespace>XpandEvents</RootNamespace>
-        <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
-        <CompilerGeneratedFilesOutputPath>$(BaseIntermediateOutputPath)\GeneratedFiles</CompilerGeneratedFilesOutputPath>
+        <TransformOnBuild>true</TransformOnBuild>
     </PropertyGroup>
 
     <ItemGroup>
@@ -16,9 +15,18 @@
         <Generator>TextTemplatingFileGenerator</Generator>
         <LastGenOutput>XEvent.cs</LastGenOutput>
       </None>
+      <None Update="Generated\SafeXEvent.tt">
+        <Generator>TextTemplatingFileGenerator</Generator>
+        <LastGenOutput>SafeXEvent.cs</LastGenOutput>
+      </None>
     </ItemGroup>
 
     <ItemGroup>
+      <Compile Update="Generated\SafeXEvent.cs">
+        <AutoGen>True</AutoGen>
+        <DesignTime>True</DesignTime>
+        <DependentUpon>SafeXEvent.tt</DependentUpon>
+      </Compile>
       <Compile Update="Generated\XEvent.cs">
         <AutoGen>True</AutoGen>
         <DesignTime>True</DesignTime>

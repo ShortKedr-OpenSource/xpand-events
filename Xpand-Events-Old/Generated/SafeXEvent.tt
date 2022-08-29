@@ -2,17 +2,23 @@
 <#@ import namespace="System.Text" #>
 <#@ output extension=".cs" encoding="utf-8" #>
 <#@ include file="Includes/Operations.ttinclude"#>
+using System;
+
 namespace Xpand.Events { 
 
 <#
     int maxParamCount = 8;
     for (int i = 0; i <= maxParamCount; i++) {
 #>
-    public class XEvent<#= BuildTemplateDefinitionParams(i) #> : BaseEvent<Event<#= BuildTemplateDefinitionParams(i) #>> {
+    public class SafeXEvent<#= BuildTemplateDefinitionParams(i) #> : BaseEvent<Event<#= BuildTemplateDefinitionParams(i) #>> {
 
         public void Invoke(<#= BuildTemplateMethodParams(i) #>){
             for (int i = 0; i < _subscriptions.Count; i++) {
-                _subscriptions[i].Invoke(<#= BuildTemplateUseParams(i) #>);
+                try {
+                    _subscriptions[i].Invoke(<#= BuildTemplateUseParams(i) #>);
+                } catch(Exception e){
+                    //TODO call Exception method
+                } 
             }
         }
 
