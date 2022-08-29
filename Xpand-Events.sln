@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xpand-Events", "Xpand-Events\Xpand-Events.csproj", "{EBEA4DCB-6F4A-48D6-ABB4-7A1E7B77C086}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EBEA4DCB-6F4A-48D6-ABB4-7A1E7B77C086}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBEA4DCB-6F4A-48D6-ABB4-7A1E7B77C086}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBEA4DCB-6F4A-48D6-ABB4-7A1E7B77C086}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBEA4DCB-6F4A-48D6-ABB4-7A1E7B77C086}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
