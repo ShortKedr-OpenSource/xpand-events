@@ -1,12 +1,16 @@
 ﻿<#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#+
-    public string BuildTemplateDefinitionParams(int paramCount) {
+    public string BuildTemplateDefinitionParams(int paramCount, TemplateParamModifier templateModifier = TemplateParamModifier.Default) {
+        string modifier = (templateModifier == TemplateParamModifier.Default)? ""
+            : (templateModifier == TemplateParamModifier.In) ? "in "
+            : (templateModifier == TemplateParamModifier.Out) ? "out " 
+            : "";
         if (paramCount == 0) return "";
-        if (paramCount == 1) return "<T>";
+        if (paramCount == 1) return $"<{modifier}T>";
         StringBuilder builder = new StringBuilder("<");
         for (int i = 1; i <= paramCount; i++) {
-            builder.Append($"T{i}" + ((i != paramCount) ? ", " : ">"));
+            builder.Append($"{modifier}T{i}" + ((i != paramCount) ? ", " : ">"));
         }
         return builder.ToString();
     }
@@ -29,5 +33,11 @@
             builder.Append($"value{i}" + ((i != paramCount) ? ", " : ""));
         }
         return builder.ToString();
+    }
+
+    public enum TemplateParamModifier {
+        Default = 0,
+        In = 1,
+        Out = 2,
     }
 #>

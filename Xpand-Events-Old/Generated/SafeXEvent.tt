@@ -2,13 +2,13 @@
 <#@ import namespace="System.Text" #>
 <#@ output extension=".cs" encoding="utf-8" #>
 <#@ include file="Includes/Operations.ttinclude"#>
+<#@ include file="Includes/EventGenerationConfig.ttinclude"#>
 using System;
 
 namespace Xpand.Events { 
 
 <#
-    int maxParamCount = 8;
-    for (int i = 0; i <= maxParamCount; i++) {
+    for (int i = 0; i <= EventMaxParamCount; i++) {
 #>
     public class SafeXEvent<#= BuildTemplateDefinitionParams(i) #> : BaseEvent<Event<#= BuildTemplateDefinitionParams(i) #>> {
 
