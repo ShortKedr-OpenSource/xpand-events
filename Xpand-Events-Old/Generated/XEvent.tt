@@ -1,0 +1,50 @@
+﻿<#@ template language="C#" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ output extension=".cs" encoding="utf-8" #>
+
+public class XEvent<#= GetGenericDefinition(0) #> : BaseEvent<Event<<#= GetGenericDefinition(0) #>>> {
+
+    public void Invoke(<#=GetInvokeDefinitionParams(0)#>>){
+        for (int i = 0; i < _subscriptions.Count; i++) {
+            _subscriptions[i].Invoke(<#=GetInvokeCallParams(0)#>);
+        }
+    }
+
+}
+
+<#+
+
+    string GetGenericDefinition(int paramCount) {
+        if (paramCount == 0) return "";
+        if (paramCount == 1) return "<T>";
+        StringBuilder defintionBuilder = new StringBuilder("<");
+        for (int i = 1; i <= paramCount; i++) {
+            defintionBuilder.Append($"T{i}" + ((i != paramCount) ? ", " : ">"));
+        }
+        return defintionBuilder.ToString();
+    }
+
+    string GetInvokeDefinitionParams(int paramCount) {
+        if (paramCount == 0) return "";
+        if (paramCount == 1) return "T value";
+        StringBuilder defintionBuilder = new StringBuilder("<");
+        for (int i = 1; i <= paramCount; i++) {
+            defintionBuilder.Append($"T value{i}" + ((i != paramCount) ? ", " : ""));
+        }
+        return defintionBuilder.ToString();
+    }
+
+    string GetInvokeCallParams(int paramCount) {
+        if (paramCount == 0) return "";
+        if (paramCount == 1) return "value";
+        StringBuilder defintionBuilder = new StringBuilder("<");
+        for (int i = 1; i <= paramCount; i++) {
+            defintionBuilder.Append($"value{i}" + ((i != paramCount) ? ", " : ""));
+        }
+        return defintionBuilder.ToString();
+    }
+
+#>

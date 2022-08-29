@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <RootNamespace>XpandEvents</RootNamespace>
+        <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+        <CompilerGeneratedFilesOutputPath>$(BaseIntermediateOutputPath)\GeneratedFiles</CompilerGeneratedFilesOutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Content Include="TODOs.md" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="Generated\XEvent.tt">
+        <Generator>TextTemplatingFileGenerator</Generator>
+        <LastGenOutput>XEvent.cs</LastGenOutput>
+      </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Generated\XEvent.cs">
+        <AutoGen>True</AutoGen>
+        <DesignTime>True</DesignTime>
+        <DependentUpon>XEvent.tt</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+</Project>
