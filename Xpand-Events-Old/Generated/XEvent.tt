@@ -11,6 +11,8 @@ namespace Xpand.Events {
     public class XEvent<#= BuildTemplateDefinitionParams(i) #> : BaseEvent<Event<#= BuildTemplateDefinitionParams(i) #>> {
 
         public void Invoke(<#= BuildTemplateMethodParams(i) #>){
+            if (IsSuspended) return;
+            PrepareInvoke();
             for (int i = 0; i < _subscriptions.Count; i++) {
                 _subscriptions[i].Invoke(<#= BuildTemplateUseParams(i) #>);
             }

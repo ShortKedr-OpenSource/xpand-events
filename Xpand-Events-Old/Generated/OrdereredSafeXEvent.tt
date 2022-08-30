@@ -1,0 +1,6 @@
+﻿<#@ template debug="false" language="C#" #>
+<#@ import namespace="System.Text" #>
+<#@ output extension=".cs" encoding="utf-8" #>
+<#@ include file="Includes/Operations.ttinclude"#>
+<#@ include file="Includes/EventGenerationConfig.ttinclude"#>
+
