@@ -6,6 +6,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XpandEventsSourceGenerator"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xpand-Events-Old", "Xpand-Events-Old\Xpand-Events-Old.csproj", "{6C4A6DCE-7BD2-42D5-855A-F6C9D5AB3927}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerformanceBenchmark", "PerformanceBenchmark\PerformanceBenchmark.csproj", "{EF734A82-5A0C-4E68-A804-77993094FFDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examples", "Examples\Examples.csproj", "{BAE39717-3061-44E8-A0F1-F20061093263}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +28,13 @@ Global
 		{6C4A6DCE-7BD2-42D5-855A-F6C9D5AB3927}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C4A6DCE-7BD2-42D5-855A-F6C9D5AB3927}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C4A6DCE-7BD2-42D5-855A-F6C9D5AB3927}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF734A82-5A0C-4E68-A804-77993094FFDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF734A82-5A0C-4E68-A804-77993094FFDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF734A82-5A0C-4E68-A804-77993094FFDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF734A82-5A0C-4E68-A804-77993094FFDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAE39717-3061-44E8-A0F1-F20061093263}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAE39717-3061-44E8-A0F1-F20061093263}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAE39717-3061-44E8-A0F1-F20061093263}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAE39717-3061-44E8-A0F1-F20061093263}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
