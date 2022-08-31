@@ -10,7 +10,7 @@ namespace Xpand.Events {
 <#
     for (int i = 0; i <= EventMaxParamCount; i++) {
 #>
-    public class OrderedSafeXEvent<#= BuildTemplateDefinitionParams(i) #> : BaseOrderedEvent<Event<#= BuildTemplateDefinitionParams(i) #>> {
+    public class SafeOrderedXEvent<#= BuildTemplateDefinitionParams(i) #> : BaseOrderedEvent<Event<#= BuildTemplateDefinitionParams(i) #>> {
 
         public void Invoke(<#= BuildTemplateMethodParams(i) #>){
             if (IsSuspended) return;

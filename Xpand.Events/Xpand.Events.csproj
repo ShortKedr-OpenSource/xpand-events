@@ -22,10 +22,18 @@
         <Generator>TextTemplatingFileGenerator</Generator>
         <LastGenOutput>OrderedXEvent.cs</LastGenOutput>
       </None>
-      <None Update="Generated\OrdereredSafeXEvent.tt">
+      <None Update="Generated\SafeOrdereredXEvent.tt">
         <Generator>TextTemplatingFileGenerator</Generator>
-        <LastGenOutput>OrdereredSafeXEvent.cs</LastGenOutput>
+        <LastGenOutput>SafeOrdereredXEvent.cs</LastGenOutput>
       </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Generated\SafeOrdereredXEvent.cs">
+        <AutoGen>True</AutoGen>
+        <DesignTime>True</DesignTime>
+        <DependentUpon>SafeOrdereredXEvent.tt</DependentUpon>
+      </Compile>
     </ItemGroup>
 
 </Project>

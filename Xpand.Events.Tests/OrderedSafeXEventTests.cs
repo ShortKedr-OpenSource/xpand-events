@@ -5,11 +5,11 @@ using Xpand.Events;
 
 namespace Tests {
     [TestFixture]
-    public class OrderedOrderedSafeXEventTests {
+    public class SafeOrderedXEventTests {
         
         [Test]
         public void AddRemoveContainsOps() {
-            OrderedSafeXEvent ev = new OrderedSafeXEvent();
+            SafeOrderedXEvent ev = new SafeOrderedXEvent();
             bool wasCalled = false;
             Event listener = () => wasCalled = true;
             ev.AddListener(listener);
@@ -22,7 +22,7 @@ namespace Tests {
         
         [Test]
         public void NoDuplicateListeners() {
-            OrderedSafeXEvent ev = new OrderedSafeXEvent();
+            SafeOrderedXEvent ev = new SafeOrderedXEvent();
             Event listener = () => {};
             bool a1 = ev.AddListener(listener);
             bool a2 = ev.AddListener(listener);
@@ -32,7 +32,7 @@ namespace Tests {
         [Test]
         public void NullSafeInvoke() {
             //TODO use listener from external dll, dealloc it before use
-            OrderedSafeXEvent ev = new OrderedSafeXEvent();
+            SafeOrderedXEvent ev = new SafeOrderedXEvent();
             ev.AddListener(null);
             ev.Invoke();
             Assert.IsTrue(ev.Subscriptions.Length == 0);
@@ -40,7 +40,7 @@ namespace Tests {
 
         [Test]
         public void SuspendWorks() {
-            OrderedSafeXEvent ev = new OrderedSafeXEvent();
+            SafeOrderedXEvent ev = new SafeOrderedXEvent();
             bool wasCalled = false;
             Event listener = () => wasCalled = true;
             ev.AddListener(listener);
@@ -51,7 +51,7 @@ namespace Tests {
         
         [Test]
         public void UnsuspendWorks() {
-            OrderedSafeXEvent ev = new OrderedSafeXEvent();
+            SafeOrderedXEvent ev = new SafeOrderedXEvent();
             bool wasCalled = false;
             Event listener = () => wasCalled = true;
             ev.AddListener(listener);
@@ -62,7 +62,7 @@ namespace Tests {
 
         [Test]
         public void ExceptionCatch() {
-            OrderedSafeXEvent ev = new OrderedSafeXEvent();
+            SafeOrderedXEvent ev = new SafeOrderedXEvent();
             Event listener = () => throw new Exception();
             ev.AddListener(listener);
             ev.Invoke();
@@ -71,7 +71,7 @@ namespace Tests {
 
         [Test]
         public void Logging() {
-            OrderedSafeXEvent ev = new OrderedSafeXEvent();
+            SafeOrderedXEvent ev = new SafeOrderedXEvent();
             Event listener = () => throw new Exception();
             ev.AddListener(listener);
             
@@ -94,7 +94,7 @@ namespace Tests {
 
         [Test]
         public void ImplicitLogging() {
-            OrderedSafeXEvent ev = new OrderedSafeXEvent();
+            SafeOrderedXEvent ev = new SafeOrderedXEvent();
             Event listener = () => throw new Exception();
             ev.AddListener(listener);
             
