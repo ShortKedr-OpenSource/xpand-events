@@ -7,10 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Content Include="TODOs.md" />
-    </ItemGroup>
-
-    <ItemGroup>
       <None Update="Generated\XEvent.tt">
         <Generator>TextTemplatingFileGenerator</Generator>
         <LastGenOutput>XEvent.cs</LastGenOutput>
@@ -22,6 +18,14 @@
       <None Update="Generated\EventDelegate.tt">
         <Generator>TextTemplatingFileGenerator</Generator>
         <LastGenOutput>EventDelegate.cs</LastGenOutput>
+      </None>
+      <None Update="Generated\OrdereredSafeXEvent.tt">
+        <Generator>TextTemplatingFileGenerator</Generator>
+        <LastGenOutput>OrdereredSafeXEvent.cs</LastGenOutput>
+      </None>
+      <None Update="Generated\OrderedXEvent.tt">
+        <Generator>TextTemplatingFileGenerator</Generator>
+        <LastGenOutput>OrderedXEvent.cs</LastGenOutput>
       </None>
     </ItemGroup>
 
@@ -40,6 +44,16 @@
         <AutoGen>True</AutoGen>
         <DesignTime>True</DesignTime>
         <DependentUpon>XEvent.tt</DependentUpon>
+      </Compile>
+      <Compile Update="Generated\OrdereredSafeXEvent.cs">
+        <AutoGen>True</AutoGen>
+        <DesignTime>True</DesignTime>
+        <DependentUpon>OrdereredSafeXEvent.tt</DependentUpon>
+      </Compile>
+      <Compile Update="Generated\OrderedXEvent.cs">
+        <AutoGen>True</AutoGen>
+        <DesignTime>True</DesignTime>
+        <DependentUpon>OrderedXEvent.tt</DependentUpon>
       </Compile>
     </ItemGroup>
 

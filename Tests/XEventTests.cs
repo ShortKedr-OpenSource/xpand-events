@@ -31,6 +31,7 @@ namespace Tests {
 
         [Test]
         public void NullSafeInvoke() {
+            //TODO use listener from external dll, dealloc it before use
             XEvent ev = new XEvent();
             ev.AddListener(null);
             ev.Invoke();

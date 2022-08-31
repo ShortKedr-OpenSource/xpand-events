@@ -4,6 +4,7 @@
         <TargetFramework>net5.0</TargetFramework>
         <IsPackable>false</IsPackable>
         <TransformOnBuild>true</TransformOnBuild>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
 
     <ItemGroup>

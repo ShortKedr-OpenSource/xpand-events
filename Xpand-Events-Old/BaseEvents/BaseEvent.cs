@@ -52,7 +52,7 @@ namespace Xpand.Events {
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        protected virtual void PrepareInvoke() {
+        protected void PrepareInvoke() {
             RemoveNullSubscriptions();
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using Xpand.Events.Interface;
 
@@ -13,6 +14,23 @@ namespace Xpand.Events {
         
         public bool IsSuspended => _isSuspended;
 
+        /// <summary>
+        /// Return subscriptions array. Subscriptions are already ordered
+        /// </summary>
+        public T[] Subscriptions {
+            get {
+                IList<List<T>> orderLists = _subscriptions.Values;
+                int totalCount = 0;
+                for (int i = 0; i < orderLists.Count; i++) totalCount += orderLists[i].Count;
+                List<T> result = new List<T>(totalCount);
+                for (int i = 0; i < orderLists.Count; i++) {
+                    for (int j = 0; j < orderLists[i].Count; j++) {
+                        result.Add(orderLists[i][j]);
+                    }
+                }
+                return result.ToArray();
+            }
+        }
 
         public BaseOrderedEvent() {
             _subscriptions = new SortedList<int, List<T>>(XpandEventsConfig.DefaultSubscriptionsBuffer);
@@ -20,7 +38,18 @@ namespace Xpand.Events {
             _isSuspended = false;
         }
 
+        /// <summary>
+        /// Adds new event listener is specified priority.
+        /// Priority is optional param, so default priority equals to 0.
+        /// Higher the priority, closer the listener to invoke in the invocation queue.
+        /// Listeners with same priority value invokes in order they was added to the event.
+        /// Null reference listeners can't be added to the ordered event, method will returns False this way.
+        /// </summary>
+        /// <param name="listener">listener</param>
+        /// <param name="priority">invocation priority</param>
+        /// <returns>true if listener was added</returns>
         public bool AddListener(T listener, int priority = 0) {
+            if (listener == null) return false;
             if (_orderBySubscriptionDict.ContainsKey(listener)) return false;
             int order = ComputeOrderByPriority(priority);
             if (!_subscriptions.ContainsKey(order)) _subscriptions.Add(order, new List<T>(XpandEventsConfig.DefaultSubscriptionsBuffer));
@@ -49,7 +78,7 @@ namespace Xpand.Events {
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        protected virtual void PrepareInvoke() {
+        protected void PrepareInvoke() {
             RemoveNullSubscriptions();
         }
 
