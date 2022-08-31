@@ -1,11 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <TargetFramework>net5.0</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
       <PackageReference Include="BenchmarkDotNet" Version="0.13.2" />
     </ItemGroup>
 
+    <ItemGroup>
+        <ProjectReference Include="..\Xpand.Events\Xpand.Events.csproj" />
+    </ItemGroup>
+    
 </Project>

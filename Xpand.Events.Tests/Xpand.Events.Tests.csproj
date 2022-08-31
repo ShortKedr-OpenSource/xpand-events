@@ -5,6 +5,7 @@
         <IsPackable>false</IsPackable>
         <TransformOnBuild>true</TransformOnBuild>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <RootNamespace>Tests</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -15,7 +16,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Xpand-Events-Old\Xpand-Events-Old.csproj" />
+      <ProjectReference Include="..\Xpand.Events\Xpand.Events.csproj" />
+      <ProjectReference Include="..\Xpand.Events.SupportingLibrary\Xpand.Events.SupportingLibrary.csproj" />
     </ItemGroup>
 
 </Project>

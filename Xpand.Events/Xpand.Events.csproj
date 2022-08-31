@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <TransformOnBuild>true</TransformOnBuild>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <None Update="Generated\XEvent.tt">
+        <Generator>TextTemplatingFileGenerator</Generator>
+        <LastGenOutput>XEvent.cs</LastGenOutput>
+      </None>
+      <None Update="Generated\SafeXEvent.tt">
+        <Generator>TextTemplatingFileGenerator</Generator>
+        <LastGenOutput>SafeXEvent.cs</LastGenOutput>
+      </None>
+      <None Update="Generated\EventDelegate.tt">
+        <Generator>TextTemplatingFileGenerator</Generator>
+        <LastGenOutput>EventDelegate.cs</LastGenOutput>
+      </None>
+      <None Update="Generated\OrderedXEvent.tt">
+        <Generator>TextTemplatingFileGenerator</Generator>
+        <LastGenOutput>OrderedXEvent.cs</LastGenOutput>
+      </None>
+      <None Update="Generated\OrdereredSafeXEvent.tt">
+        <Generator>TextTemplatingFileGenerator</Generator>
+        <LastGenOutput>OrdereredSafeXEvent.cs</LastGenOutput>
+      </None>
+    </ItemGroup>
+
+</Project>
