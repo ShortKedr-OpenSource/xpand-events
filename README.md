@@ -8,11 +8,23 @@ The main idea is to solve most of event problems in your project, such as native
 
 # Table of contents
  * [Hot to use](#how-to-use)
+ * [Install](#install)
+   * [Assembly DLL](#install-assembly)
+   * [Nuget package](#install-nuget)
  * [Performance](#performance)
  * [Use with Unity Engine](#use-with-unity)
 
 
 # <a id="how-to-use"></a>Hot to use
+There will be some useful info soon
+ 
+# <a id="install"></a>Install
+There will be some useful info soon
+
+## <a id="install-assembly"></a>Assembly DLL
+There will be some useful info soon
+
+## <a id="install-nuget"></a>Nuget package
 There will be some useful info soon
  
 # <a id="performance"></a>Performance
