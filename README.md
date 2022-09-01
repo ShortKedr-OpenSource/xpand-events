@@ -14,6 +14,7 @@ The main idea is to solve most of event problems in your project, such as native
  * [Performance](#performance)
  * [Migrating from default events](#migrating)
  * [Async usage](#async-usage)
+ * [Multithreading](#multithreading)
  * [Use with Unity Engine](#use-with-unity)
 
 
@@ -36,6 +37,9 @@ There will be some useful info soon
 There will be some useful info soon
 
 # <a id="async-usage"></a>Async usage
+There will be some useful info soon
+
+# <a id="multithreading"></a>Multithreading
 There will be some useful info soon
 
 # <a id="use-with-unity"></a>Use with Unity Engine
