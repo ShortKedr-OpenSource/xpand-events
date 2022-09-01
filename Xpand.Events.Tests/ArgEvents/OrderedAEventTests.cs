@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using NUnit.Framework;
-using Xpand.Events;
+using EventHandler = Xpand.Events.EventHandler<System.EventArgs>;
 
-namespace Tests {
+namespace Xpand.Events.Tests {
     [TestFixture]
-    public class OrderedXEventTests {
+    public class OrderedAEventTests {
         
         [Test]
         public void AddRemoveContainsOps() {
-            XEvent ev = new XEvent();
+            OrderedAEvent<EventArgs> ev = new OrderedAEvent<EventArgs>();
             bool wasCalled = false;
-            Event listener = () => wasCalled = true;
+            EventHandler listener = (args) => wasCalled = true;
             ev.AddListener(listener);
-            ev.Invoke();
+            ev.Invoke(EventArgs.Empty);
             bool con1 = ev.Contains(listener);
             bool rem = ev.RemoveListener(listener);
             bool con2 = ev.Contains(listener);
@@ -22,8 +22,8 @@ namespace Tests {
         
         [Test]
         public void NoDuplicateListeners() {
-            OrderedXEvent ev = new OrderedXEvent();
-            Event listener = () => {};
+            OrderedAEvent<EventArgs> ev = new OrderedAEvent<EventArgs>();
+            EventHandler listener = (args) => {};
             bool a1 = ev.AddListener(listener);
             bool a2 = ev.AddListener(listener);
             Assert.IsTrue(a1 && !a2);
@@ -32,48 +32,48 @@ namespace Tests {
         [Test]
         public void NullSafeInvoke() {
             //TODO use listener from external dll, dealloc it before use
-            OrderedXEvent ev = new OrderedXEvent();
+            OrderedAEvent<EventArgs> ev = new OrderedAEvent<EventArgs>();
             ev.AddListener(null);
-            ev.Invoke();
+            ev.Invoke(EventArgs.Empty);
             Assert.IsTrue(ev.Subscriptions.Length == 0);
         }
 
         [Test]
         public void SuspendWorks() {
-            OrderedXEvent ev = new OrderedXEvent();
+            OrderedAEvent<EventArgs> ev = new OrderedAEvent<EventArgs>();
             bool wasCalled = false;
-            Event listener = () => wasCalled = true;
+            EventHandler listener = (args) => wasCalled = true;
             ev.AddListener(listener);
             ev.Suspend();
-            ev.Invoke();
+            ev.Invoke(EventArgs.Empty);
             Assert.IsTrue(!wasCalled);
         }
         
         [Test]
         public void UnsuspendWorks() {
-            OrderedXEvent ev = new OrderedXEvent();
+            OrderedAEvent<EventArgs> ev = new OrderedAEvent<EventArgs>();
             bool wasCalled = false;
-            Event listener = () => wasCalled = true;
+            EventHandler listener = (args) => wasCalled = true;
             ev.AddListener(listener);
             ev.Unsuspend();
-            ev.Invoke();
+            ev.Invoke(EventArgs.Empty);
             Assert.IsTrue(wasCalled);
         }
 
         [Test]
         public void SubscriptionsArrayOrder() {
-            OrderedXEvent ev = new OrderedXEvent();
+            OrderedAEvent<EventArgs> ev = new OrderedAEvent<EventArgs>();
             List<int> callStack = new List<int>();
             
-            Event l1 = () => { callStack.Add(1); };
-            Event l2 = () => { callStack.Add(2); };
-            Event l3 = () => { callStack.Add(3); };
-            Event l4 = () => { callStack.Add(4); };
-            Event l5 = () => { callStack.Add(5);};
-            Event l6 = () => { callStack.Add(6);};
-            Event l7 = () => { callStack.Add(7);};
-            Event l8 = () => { callStack.Add(8);};
-            Event l9 = () => { callStack.Add(9);};
+            EventHandler l1 = (args) => { callStack.Add(1); };
+            EventHandler l2 = (args) => { callStack.Add(2); };
+            EventHandler l3 = (args) => { callStack.Add(3); };
+            EventHandler l4 = (args) => { callStack.Add(4); };
+            EventHandler l5 = (args) => { callStack.Add(5);};
+            EventHandler l6 = (args) => { callStack.Add(6);};
+            EventHandler l7 = (args) => { callStack.Add(7);};
+            EventHandler l8 = (args) => { callStack.Add(8);};
+            EventHandler l9 = (args) => { callStack.Add(9);};
 
             ev.AddListener(l2, 1);
             ev.AddListener(l1, 4);
@@ -87,7 +87,7 @@ namespace Tests {
             
             var subscriptions = ev.Subscriptions;
             if (subscriptions.Length != 9) Assert.Fail($"Expected count: 9; Real count:{subscriptions.Length}");
-            for (int i = 0; i < subscriptions.Length; i++) subscriptions[i].Invoke();
+            for (int i = 0; i < subscriptions.Length; i++) subscriptions[i].Invoke(EventArgs.Empty);
             
             int expectedOrder = 175492836;
             int builtOrder = 0;
@@ -97,20 +97,20 @@ namespace Tests {
 
         [Test]
         public void InvokeOrder() {
-            OrderedXEvent ev = new OrderedXEvent();
+            OrderedAEvent<EventArgs> ev = new OrderedAEvent<EventArgs>();
             List<int> callStack = new List<int>();
             List<Action> addActions = new List<Action>();
 
             
-            Event l1 = () => { callStack.Add(1); };
-            Event l2 = () => { callStack.Add(2); };
-            Event l3 = () => { callStack.Add(3); };
-            Event l4 = () => { callStack.Add(4); };
-            Event l5 = () => { callStack.Add(5);};
-            Event l6 = () => { callStack.Add(6);};
-            Event l7 = () => { callStack.Add(7);};
-            Event l8 = () => { callStack.Add(8);};
-            Event l9 = () => { callStack.Add(9);};
+            EventHandler l1 = (args) => { callStack.Add(1); };
+            EventHandler l2 = (args) => { callStack.Add(2); };
+            EventHandler l3 = (args) => { callStack.Add(3); };
+            EventHandler l4 = (args) => { callStack.Add(4); };
+            EventHandler l5 = (args) => { callStack.Add(5);};
+            EventHandler l6 = (args) => { callStack.Add(6);};
+            EventHandler l7 = (args) => { callStack.Add(7);};
+            EventHandler l8 = (args) => { callStack.Add(8);};
+            EventHandler l9 = (args) => { callStack.Add(9);};
 
             ev.AddListener(l2, 1);
             ev.AddListener(l1, 4);
@@ -122,7 +122,7 @@ namespace Tests {
             ev.AddListener(l8, 1);
             ev.AddListener(l9, 2);
 
-            ev.Invoke();
+            ev.Invoke(EventArgs.Empty);
             
             int expectedOrder = 175492836;
             int builtOrder = 0;

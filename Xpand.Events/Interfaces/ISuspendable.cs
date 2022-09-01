@@ -1,4 +1,4 @@
-﻿namespace Xpand.Events.Interface {
+﻿namespace Xpand.Events.Interfaces {
     public interface ISuspendable {
         public bool IsSuspended { get; }
         public void Suspend();

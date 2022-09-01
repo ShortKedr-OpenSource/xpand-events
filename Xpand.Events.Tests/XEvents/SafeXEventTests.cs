@@ -1,9 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
-using NUnit.Framework.Internal;
-using Xpand.Events;
 
-namespace Tests {
+namespace Xpand.Events.Tests {
     [TestFixture]
     public class SafeXEventTests {
         [Test]

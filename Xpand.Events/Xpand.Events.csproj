@@ -3,6 +3,7 @@
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
         <TransformOnBuild>true</TransformOnBuild>
+        <Authors>Nikolay Nakorkeshko</Authors>
     </PropertyGroup>
 
     <ItemGroup>
@@ -33,6 +34,9 @@
         <AutoGen>True</AutoGen>
         <DesignTime>True</DesignTime>
         <DependentUpon>SafeOrdereredXEvent.tt</DependentUpon>
+      </Compile>
+      <Compile Update="Generated\EventDelegate.cs">
+        <DependentUpon>EventDelegate.tt</DependentUpon>
       </Compile>
     </ItemGroup>
 

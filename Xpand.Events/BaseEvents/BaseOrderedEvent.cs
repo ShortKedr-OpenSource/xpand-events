@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
-using Xpand.Events.Interface;
+using Xpand.Events.Interfaces;
 
 namespace Xpand.Events {
     public abstract class BaseOrderedEvent<T> : ISuspendable where T : Delegate {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Xpand.Events.Interface;
+using Xpand.Events.Interfaces;
 
 namespace Xpand.Events {
     /// <summary>

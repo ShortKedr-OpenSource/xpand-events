@@ -9,6 +9,7 @@ namespace Xpand.Events {
 #>
     public delegate void Event<#= BuildTemplateDefinitionParams(i, TemplateParamModifier.In) #>(<#= BuildTemplateMethodParams(i) #>);
 <#
+        //TODO rename to EventHandler
     }
 #>
 }
