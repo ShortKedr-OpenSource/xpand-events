@@ -31,7 +31,7 @@ There will be some useful info soon
 There will be some useful info soon
  
 # <a id="performance"></a>Performance
-Source code for benchmarks presented in `Xpand.Events.Benchmark` project.
+Source code for benchmarks presented in `Xpand.Events.Benchmark` project.  
 There are lastest benchmark results:
 
 ### Event Invoke:
