@@ -12,6 +12,7 @@ The main idea is to solve most of event problems in your project, such as native
    * [Assembly DLL](#install-assembly)
    * [Nuget package](#install-nuget)
  * [Performance](#performance)
+ * [Migrating from default events](#migrating)
  * [Use with Unity Engine](#use-with-unity)
 
 
@@ -28,6 +29,9 @@ There will be some useful info soon
 There will be some useful info soon
  
 # <a id="performance"></a>Performance
+There will be some useful info soon
+
+# <a id="migrating"></a>Migrating from default events
 There will be some useful info soon
 
 # <a id="use-with-unity"></a>Use with Unity Engine
