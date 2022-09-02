@@ -10,7 +10,7 @@ namespace Xpand.Events.Benchmark.Configs {
     public class NoArgsSubscribeConfig : ManualConfig {
         public NoArgsSubscribeConfig() {
             
-            SummaryStyle = SummaryStyle.Default.WithRatioStyle(RatioStyle.Trend);
+            SummaryStyle = SummaryStyle.Default.WithRatioStyle(RatioStyle.Trend).WithTimeUnit(TimeUnit.Microsecond);
 
             AddJob(new Job() {
                 Accuracy = {MaxRelativeError = 0.01f, MaxAbsoluteError = TimeInterval.FromMilliseconds(1.0d)}
