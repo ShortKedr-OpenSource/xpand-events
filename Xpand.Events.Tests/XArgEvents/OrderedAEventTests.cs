@@ -9,7 +9,7 @@ namespace Xpand.Events.Tests {
         
         [Test]
         public void AddRemoveContainsOps() {
-            OrderedAEvent<EventArgs> ev = new OrderedAEvent<EventArgs>();
+            OrderedXArgEvent<EventArgs> ev = new OrderedXArgEvent<EventArgs>();
             bool wasCalled = false;
             EventHandler listener = (args) => wasCalled = true;
             ev.AddListener(listener);
@@ -22,7 +22,7 @@ namespace Xpand.Events.Tests {
         
         [Test]
         public void NoDuplicateListeners() {
-            OrderedAEvent<EventArgs> ev = new OrderedAEvent<EventArgs>();
+            OrderedXArgEvent<EventArgs> ev = new OrderedXArgEvent<EventArgs>();
             EventHandler listener = (args) => {};
             bool a1 = ev.AddListener(listener);
             bool a2 = ev.AddListener(listener);
@@ -32,7 +32,7 @@ namespace Xpand.Events.Tests {
         [Test]
         public void NullSafeInvoke() {
             //TODO use listener from external dll, dealloc it before use
-            OrderedAEvent<EventArgs> ev = new OrderedAEvent<EventArgs>();
+            OrderedXArgEvent<EventArgs> ev = new OrderedXArgEvent<EventArgs>();
             ev.AddListener(null);
             ev.Invoke(EventArgs.Empty);
             Assert.IsTrue(ev.Subscriptions.Length == 0);
@@ -40,7 +40,7 @@ namespace Xpand.Events.Tests {
 
         [Test]
         public void SuspendWorks() {
-            OrderedAEvent<EventArgs> ev = new OrderedAEvent<EventArgs>();
+            OrderedXArgEvent<EventArgs> ev = new OrderedXArgEvent<EventArgs>();
             bool wasCalled = false;
             EventHandler listener = (args) => wasCalled = true;
             ev.AddListener(listener);
@@ -51,7 +51,7 @@ namespace Xpand.Events.Tests {
         
         [Test]
         public void UnsuspendWorks() {
-            OrderedAEvent<EventArgs> ev = new OrderedAEvent<EventArgs>();
+            OrderedXArgEvent<EventArgs> ev = new OrderedXArgEvent<EventArgs>();
             bool wasCalled = false;
             EventHandler listener = (args) => wasCalled = true;
             ev.AddListener(listener);
@@ -62,7 +62,7 @@ namespace Xpand.Events.Tests {
 
         [Test]
         public void SubscriptionsArrayOrder() {
-            OrderedAEvent<EventArgs> ev = new OrderedAEvent<EventArgs>();
+            OrderedXArgEvent<EventArgs> ev = new OrderedXArgEvent<EventArgs>();
             List<int> callStack = new List<int>();
             
             EventHandler l1 = (args) => { callStack.Add(1); };
@@ -97,7 +97,7 @@ namespace Xpand.Events.Tests {
 
         [Test]
         public void InvokeOrder() {
-            OrderedAEvent<EventArgs> ev = new OrderedAEvent<EventArgs>();
+            OrderedXArgEvent<EventArgs> ev = new OrderedXArgEvent<EventArgs>();
             List<int> callStack = new List<int>();
             List<Action> addActions = new List<Action>();
 

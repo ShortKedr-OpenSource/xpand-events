@@ -3,8 +3,12 @@
 namespace Xpand.Events.Benchmark {
     public static class Run {
         public static void Main(string[] args) {
-            var invokeSummary = BenchmarkRunner.Run<InvokeBenchmark>();
-            var subscribeSummary = BenchmarkRunner.Run<SubscriptionBenchmark>();
+            var noArgsInvokeSummary = BenchmarkRunner.Run<NoArgsInvokeBenchmark>();
+            /*var noArgsSubscribeSummary = BenchmarkRunner.Run<NoArgsSubscribeBenchmark>();
+            var noArgsUnsubscribeSummary = BenchmarkRunner.Run<NoArgsUnsubscribeBenchmark>();
+            var withArgsInvokeSummary = BenchmarkRunner.Run<WithArgsInvokeBenchmark>();
+            var withArgsSubscribeSummary = BenchmarkRunner.Run<WithArgsSubscribeBenchmark>();
+            var withArgsUnsubscribeSummary = BenchmarkRunner.Run<WithArgsUnsubscribeBenchmark>();*/
         }
     }
 }

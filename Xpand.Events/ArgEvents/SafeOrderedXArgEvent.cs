@@ -1,7 +1,8 @@
 ﻿using System;
 
 namespace Xpand.Events {
-    public class OrderedAEvent<TSender, TEventArgs> : BaseOrderedEvent<EventHandler<TSender, TEventArgs>> 
+    
+    public class SafeOrderedXArgEvent<TSender, TEventArgs> : BaseOrderedEvent<EventHandler<TSender, TEventArgs>> 
         where TEventArgs : EventArgs
     {
 
@@ -12,14 +13,18 @@ namespace Xpand.Events {
             for (int i = 0; i < orderLists.Count; i++) {
                 var subscriptions = orderLists[i];
                 for (int j = 0; j < subscriptions.Count; j++) {
-                    subscriptions[j].Invoke(sender, args);
+                    try {
+                        subscriptions[j].Invoke(sender, args);
+                    } catch(Exception e){
+                        XEventLogger.LogException(e);
+                    }
                 }
             }
         }
 
     }
 
-    public class OrderedAEvent<TEventArgs> : BaseOrderedEvent<EventHandler<TEventArgs>> where TEventArgs : EventArgs {
+    public class SafeOrderedXArgEvent<TEventArgs> : BaseOrderedEvent<EventHandler<TEventArgs>> where TEventArgs : EventArgs {
         
         public void Invoke(TEventArgs args) {
             if (IsSuspended) return;
@@ -28,7 +33,11 @@ namespace Xpand.Events {
             for (int i = 0; i < orderLists.Count; i++) {
                 var subscriptions = orderLists[i];
                 for (int j = 0; j < subscriptions.Count; j++) {
-                    subscriptions[j].Invoke(args);
+                    try {
+                        subscriptions[j].Invoke(args);
+                    } catch(Exception e){
+                        XEventLogger.LogException(e);
+                    }
                 }
             }
         }

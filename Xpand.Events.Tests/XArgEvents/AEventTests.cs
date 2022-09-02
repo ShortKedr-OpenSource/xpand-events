@@ -8,7 +8,7 @@ namespace Xpand.Events.Tests {
 
         [Test]
         public void AddRemoveContainsOps() {
-            AEvent<EventArgs> ev = new AEvent<EventArgs>();
+            XArgEvent<EventArgs> ev = new XArgEvent<EventArgs>();
             bool wasCalled = false;
             EventHandler listener = (args) => wasCalled = true;
             ev.AddListener(listener);
@@ -21,7 +21,7 @@ namespace Xpand.Events.Tests {
         
         [Test]
         public void NoDuplicateListeners() {
-            AEvent<EventArgs> ev = new AEvent<EventArgs>();
+            XArgEvent<EventArgs> ev = new XArgEvent<EventArgs>();
             EventHandler listener = (args) => {};
             bool a1 = ev.AddListener(listener);
             bool a2 = ev.AddListener(listener);
@@ -31,7 +31,7 @@ namespace Xpand.Events.Tests {
         [Test]
         public void NullSafeInvoke() {
             //TODO use listener from external dll, dealloc it before use
-            AEvent<EventArgs> ev = new AEvent<EventArgs>();
+            XArgEvent<EventArgs> ev = new XArgEvent<EventArgs>();
             ev.AddListener(null);
             ev.Invoke(EventArgs.Empty);
             Assert.IsTrue(ev.Subscriptions.Length == 0);
@@ -39,7 +39,7 @@ namespace Xpand.Events.Tests {
 
         [Test]
         public void SuspendWorks() {
-            AEvent<EventArgs> ev = new AEvent<EventArgs>();
+            XArgEvent<EventArgs> ev = new XArgEvent<EventArgs>();
             bool wasCalled = false;
             EventHandler listener = (args) => wasCalled = true;
             ev.AddListener(listener);
@@ -50,7 +50,7 @@ namespace Xpand.Events.Tests {
         
         [Test]
         public void UnsuspendWorks() {
-            AEvent<EventArgs> ev = new AEvent<EventArgs>();
+            XArgEvent<EventArgs> ev = new XArgEvent<EventArgs>();
             bool wasCalled = false;
             EventHandler listener = (args) => wasCalled = true;
             ev.AddListener(listener);

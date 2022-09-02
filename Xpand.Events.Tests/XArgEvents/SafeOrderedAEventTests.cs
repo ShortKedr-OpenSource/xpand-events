@@ -9,7 +9,7 @@ namespace Xpand.Events.Tests {
         
         [Test]
         public void AddRemoveContainsOps() {
-            SafeOrderedAEvent<EventArgs> ev = new SafeOrderedAEvent<EventArgs>();
+            SafeOrderedXArgEvent<EventArgs> ev = new SafeOrderedXArgEvent<EventArgs>();
             bool wasCalled = false;
             EventHandler listener = (args) => wasCalled = true;
             ev.AddListener(listener);
@@ -22,7 +22,7 @@ namespace Xpand.Events.Tests {
         
         [Test]
         public void NoDuplicateListeners() {
-            SafeOrderedAEvent<EventArgs> ev = new SafeOrderedAEvent<EventArgs>();
+            SafeOrderedXArgEvent<EventArgs> ev = new SafeOrderedXArgEvent<EventArgs>();
             EventHandler listener = (args) => {};
             bool a1 = ev.AddListener(listener);
             bool a2 = ev.AddListener(listener);
@@ -32,7 +32,7 @@ namespace Xpand.Events.Tests {
         [Test]
         public void NullSafeInvoke() {
             //TODO use listener from external dll, dealloc it before use
-            SafeOrderedAEvent<EventArgs> ev = new SafeOrderedAEvent<EventArgs>();
+            SafeOrderedXArgEvent<EventArgs> ev = new SafeOrderedXArgEvent<EventArgs>();
             ev.AddListener(null);
             ev.Invoke(EventArgs.Empty);
             Assert.IsTrue(ev.Subscriptions.Length == 0);
@@ -40,7 +40,7 @@ namespace Xpand.Events.Tests {
 
         [Test]
         public void SuspendWorks() {
-            SafeOrderedAEvent<EventArgs> ev = new SafeOrderedAEvent<EventArgs>();
+            SafeOrderedXArgEvent<EventArgs> ev = new SafeOrderedXArgEvent<EventArgs>();
             bool wasCalled = false;
             EventHandler listener = (args) => wasCalled = true;
             ev.AddListener(listener);
@@ -51,7 +51,7 @@ namespace Xpand.Events.Tests {
         
         [Test]
         public void UnsuspendWorks() {
-            SafeOrderedAEvent<EventArgs> ev = new SafeOrderedAEvent<EventArgs>();
+            SafeOrderedXArgEvent<EventArgs> ev = new SafeOrderedXArgEvent<EventArgs>();
             bool wasCalled = false;
             EventHandler listener = (args) => wasCalled = true;
             ev.AddListener(listener);
@@ -62,7 +62,7 @@ namespace Xpand.Events.Tests {
 
         [Test]
         public void ExceptionCatch() {
-            SafeOrderedAEvent<EventArgs> ev = new SafeOrderedAEvent<EventArgs>();
+            SafeOrderedXArgEvent<EventArgs> ev = new SafeOrderedXArgEvent<EventArgs>();
             EventHandler listener = (args) => throw new Exception();
             ev.AddListener(listener);
             ev.Invoke(EventArgs.Empty);
@@ -71,7 +71,7 @@ namespace Xpand.Events.Tests {
 
         [Test]
         public void Logging() {
-            SafeOrderedAEvent<EventArgs> ev = new SafeOrderedAEvent<EventArgs>();
+            SafeOrderedXArgEvent<EventArgs> ev = new SafeOrderedXArgEvent<EventArgs>();
             EventHandler listener = (args) => throw new Exception();
             ev.AddListener(listener);
             
@@ -94,7 +94,7 @@ namespace Xpand.Events.Tests {
 
         [Test]
         public void ImplicitLogging() {
-            SafeOrderedAEvent<EventArgs> ev = new SafeOrderedAEvent<EventArgs>();
+            SafeOrderedXArgEvent<EventArgs> ev = new SafeOrderedXArgEvent<EventArgs>();
             EventHandler listener = (args) => throw new Exception();
             ev.AddListener(listener);
             
@@ -110,7 +110,7 @@ namespace Xpand.Events.Tests {
         
         [Test]
         public void SubscriptionsArrayOrder() {
-            SafeOrderedAEvent<EventArgs> ev = new SafeOrderedAEvent<EventArgs>();
+            SafeOrderedXArgEvent<EventArgs> ev = new SafeOrderedXArgEvent<EventArgs>();
             List<int> callStack = new List<int>();
             
             EventHandler l1 = (args) => { callStack.Add(1); };
@@ -145,7 +145,7 @@ namespace Xpand.Events.Tests {
 
         [Test]
         public void InvokeOrder() {
-            SafeOrderedAEvent<EventArgs> ev = new SafeOrderedAEvent<EventArgs>();
+            SafeOrderedXArgEvent<EventArgs> ev = new SafeOrderedXArgEvent<EventArgs>();
             List<int> callStack = new List<int>();
             List<Action> addActions = new List<Action>();
             

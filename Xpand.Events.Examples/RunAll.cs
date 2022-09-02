@@ -7,7 +7,7 @@ namespace Xpand.Events.Examples {
         
         public static void Main(string[] args) {
             Run(EventsBasicExample.Main);
-            Run(HandleEventsExample.Main);
+            Run(ArgEventsExample.Main);
             Run(AsyncEventsExample.Main);
             Run(MultithreadingExample.Main);
         }

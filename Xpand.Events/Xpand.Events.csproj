@@ -6,6 +6,10 @@
         <Authors>Nikolay Nakorkeshko</Authors>
     </PropertyGroup>
 
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <Optimize>true</Optimize>
+    </PropertyGroup>
+
     <ItemGroup>
       <None Update="Generated\XEvent.tt">
         <Generator>TextTemplatingFileGenerator</Generator>

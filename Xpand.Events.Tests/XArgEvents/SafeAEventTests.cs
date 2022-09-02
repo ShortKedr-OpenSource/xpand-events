@@ -7,7 +7,7 @@ namespace Xpand.Events.Tests {
     public class SafeAEventTests {
         [Test]
         public void AddRemoveContainsOps() {
-            SafeAEvent<EventArgs> ev = new SafeAEvent<EventArgs>();
+            SafeXArgEvent<EventArgs> ev = new SafeXArgEvent<EventArgs>();
             bool wasCalled = false;
             EventHandler listener = (args) => wasCalled = true;
             ev.AddListener(listener);
@@ -20,7 +20,7 @@ namespace Xpand.Events.Tests {
         
         [Test]
         public void NoDuplicateListeners() {
-            SafeAEvent<EventArgs> ev = new SafeAEvent<EventArgs>();
+            SafeXArgEvent<EventArgs> ev = new SafeXArgEvent<EventArgs>();
             EventHandler listener = (args) => {};
             bool a1 = ev.AddListener(listener);
             bool a2 = ev.AddListener(listener);
@@ -30,7 +30,7 @@ namespace Xpand.Events.Tests {
         [Test]
         public void NullSafeInvoke() {
             //TODO use listener from external dll, dealloc it before use
-            SafeAEvent<EventArgs> ev = new SafeAEvent<EventArgs>();
+            SafeXArgEvent<EventArgs> ev = new SafeXArgEvent<EventArgs>();
             ev.AddListener(null);
             ev.Invoke(EventArgs.Empty);
             Assert.IsTrue(ev.Subscriptions.Length == 0);
@@ -38,7 +38,7 @@ namespace Xpand.Events.Tests {
 
         [Test]
         public void SuspendWorks() {
-            SafeAEvent<EventArgs> ev = new SafeAEvent<EventArgs>();
+            SafeXArgEvent<EventArgs> ev = new SafeXArgEvent<EventArgs>();
             bool wasCalled = false;
             EventHandler listener = (args) => wasCalled = true;
             ev.AddListener(listener);
@@ -49,7 +49,7 @@ namespace Xpand.Events.Tests {
         
         [Test]
         public void UnsuspendWorks() {
-            SafeAEvent<EventArgs> ev = new SafeAEvent<EventArgs>();
+            SafeXArgEvent<EventArgs> ev = new SafeXArgEvent<EventArgs>();
             bool wasCalled = false;
             EventHandler listener = (args) => wasCalled = true;
             ev.AddListener(listener);
@@ -60,7 +60,7 @@ namespace Xpand.Events.Tests {
 
         [Test]
         public void ExceptionCatch() {
-            SafeAEvent<EventArgs> ev = new SafeAEvent<EventArgs>();
+            SafeXArgEvent<EventArgs> ev = new SafeXArgEvent<EventArgs>();
             EventHandler listener = (args) => throw new Exception();
             ev.AddListener(listener);
             ev.Invoke(EventArgs.Empty);
@@ -69,7 +69,7 @@ namespace Xpand.Events.Tests {
 
         [Test]
         public void Logging() {
-            SafeAEvent<EventArgs> ev = new SafeAEvent<EventArgs>();
+            SafeXArgEvent<EventArgs> ev = new SafeXArgEvent<EventArgs>();
             EventHandler listener = (args) => throw new Exception();
             ev.AddListener(listener);
             
@@ -92,7 +92,7 @@ namespace Xpand.Events.Tests {
 
         [Test]
         public void ImplicitLogging() {
-            SafeAEvent<EventArgs> ev = new SafeAEvent<EventArgs>();
+            SafeXArgEvent<EventArgs> ev = new SafeXArgEvent<EventArgs>();
             EventHandler listener = (args) => throw new Exception();
             ev.AddListener(listener);
             
