@@ -19,6 +19,7 @@ namespace Xpand.Events.Benchmark.Configs {
             AddExporter(CsvExporter.Default);
             AddExporter(MarkdownExporter.GitHub);
             AddExporter(HtmlExporter.Default);
+            AddExporter(RPlotExporter.Default);
 
         }
     }
