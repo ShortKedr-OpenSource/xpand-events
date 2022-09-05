@@ -4,7 +4,7 @@
 4. Multithreading Events
 5. Add xml docs to public content
 6. Override += and -= operators (easy migration from default events)
-7. Add fast constructor, array based for example {} or something
+7. Add fast property constructor and hide default. For example: XEvent.Default1, XEvent.Safe1, XEvent.Ordered1, XEvent.SafeOrdered1.
 
 ### Tests
 1. Implement tests for XArgEvent<TSender, TEventArgs>
