@@ -27,3 +27,6 @@
 ### Supporting Library CPP
 1. Implement EventProvider
 2. Implement EventProvider memory disposing
+  
+### GitHub
+1. Add playground (my preffered type of learning)
