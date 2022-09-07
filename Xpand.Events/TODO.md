@@ -21,12 +21,15 @@
 4. Implement examples: Multithreading Invocation;
 
 ### Supporting Library
-1. Add EventProvider bindings
+1. ~~Add EventProvider bindings~~
+2. Remove supporting library
 
 
 ### Supporting Library CPP
-1. Implement EventProvider
-2. Implement EventProvider memory disposing
+1. ~~Implement EventProvider~~
+2. ~~Implement EventProvider memory disposing~~
+3. Remove Supporting library
+  
   
 ### GitHub
 1. Add playground (my preffered type of learning)
