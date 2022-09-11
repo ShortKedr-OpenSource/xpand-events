@@ -1,6 +1,6 @@
 ﻿# Xpand Events
 Xpand-Project events realization.  
-The main idea is to solve most of event problems in your project, such as native C# events null pointers, exception-catching, method call order and so on.
+The addition to default .NET events, that solve some of it's problems.
 
 # Xpand-Project links
 - [Xpand-Events](https://github.com/ShortKedr-OpenSource/xpand-events)
