@@ -8,8 +8,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xpand.Events.Benchmark", "X
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xpand.Events.Examples", "Xpand.Events.Examples\Xpand.Events.Examples.csproj", "{DEED04AE-A232-416A-AE65-B94591051D5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xpand.Events.SupportingLibrary", "Xpand.Events.SupportingLibrary\Xpand.Events.SupportingLibrary.csproj", "{525B4AB3-D498-48EE-9186-83796496B69D}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,9 +30,5 @@ Global
 		{DEED04AE-A232-416A-AE65-B94591051D5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DEED04AE-A232-416A-AE65-B94591051D5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DEED04AE-A232-416A-AE65-B94591051D5A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{525B4AB3-D498-48EE-9186-83796496B69D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{525B4AB3-D498-48EE-9186-83796496B69D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{525B4AB3-D498-48EE-9186-83796496B69D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{525B4AB3-D498-48EE-9186-83796496B69D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

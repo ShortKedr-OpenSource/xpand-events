@@ -17,7 +17,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Xpand.Events\Xpand.Events.csproj" />
-      <ProjectReference Include="..\Xpand.Events.SupportingLibrary\Xpand.Events.SupportingLibrary.csproj" />
     </ItemGroup>
 
 </Project>

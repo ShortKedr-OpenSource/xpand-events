@@ -1,9 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net5.0</TargetFramework>
         <TransformOnBuild>true</TransformOnBuild>
         <Authors>Nikolay Nakorkeshko</Authors>
+        <TargetFrameworks>net451;net452;net46;net461;net471;net472;net5.0</TargetFrameworks>
+        <LangVersion>8</LangVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
