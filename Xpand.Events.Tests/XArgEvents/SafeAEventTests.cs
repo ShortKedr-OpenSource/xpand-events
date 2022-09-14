@@ -1,15 +1,15 @@
 ﻿using System;
 using NUnit.Framework;
-using EventHandler = Xpand.Events.EventHandler<System.EventArgs>;
+using ArgsEventHandler = Xpand.Events.ArgsEventHandler<Xpand.Events.EventArgs>;
 
 namespace Xpand.Events.Tests {
     [TestFixture]
     public class SafeAEventTests {
         [Test]
         public void AddRemoveContainsOps() {
-            SafeXArgEvent<EventArgs> ev = new SafeXArgEvent<EventArgs>();
+            XSafeArgEvent<EventArgs> ev = new XSafeArgEvent<EventArgs>();
             bool wasCalled = false;
-            EventHandler listener = (args) => wasCalled = true;
+            ArgsEventHandler listener = (args) => wasCalled = true;
             ev.AddListener(listener);
             ev.Invoke(EventArgs.Empty);
             bool con1 = ev.Contains(listener);
@@ -20,8 +20,8 @@ namespace Xpand.Events.Tests {
         
         [Test]
         public void NoDuplicateListeners() {
-            SafeXArgEvent<EventArgs> ev = new SafeXArgEvent<EventArgs>();
-            EventHandler listener = (args) => {};
+            XSafeArgEvent<EventArgs> ev = new XSafeArgEvent<EventArgs>();
+            ArgsEventHandler listener = (args) => {};
             bool a1 = ev.AddListener(listener);
             bool a2 = ev.AddListener(listener);
             Assert.IsTrue(a1 && !a2);
@@ -30,7 +30,7 @@ namespace Xpand.Events.Tests {
         [Test]
         public void NullSafeInvoke() {
             //TODO use listener from external dll, dealloc it before use
-            SafeXArgEvent<EventArgs> ev = new SafeXArgEvent<EventArgs>();
+            XSafeArgEvent<EventArgs> ev = new XSafeArgEvent<EventArgs>();
             ev.AddListener(null);
             ev.Invoke(EventArgs.Empty);
             Assert.IsTrue(ev.Subscriptions.Length == 0);
@@ -38,9 +38,9 @@ namespace Xpand.Events.Tests {
 
         [Test]
         public void SuspendWorks() {
-            SafeXArgEvent<EventArgs> ev = new SafeXArgEvent<EventArgs>();
+            XSafeArgEvent<EventArgs> ev = new XSafeArgEvent<EventArgs>();
             bool wasCalled = false;
-            EventHandler listener = (args) => wasCalled = true;
+            ArgsEventHandler listener = (args) => wasCalled = true;
             ev.AddListener(listener);
             ev.Suspend();
             ev.Invoke(EventArgs.Empty);
@@ -49,9 +49,9 @@ namespace Xpand.Events.Tests {
         
         [Test]
         public void UnsuspendWorks() {
-            SafeXArgEvent<EventArgs> ev = new SafeXArgEvent<EventArgs>();
+            XSafeArgEvent<EventArgs> ev = new XSafeArgEvent<EventArgs>();
             bool wasCalled = false;
-            EventHandler listener = (args) => wasCalled = true;
+            ArgsEventHandler listener = (args) => wasCalled = true;
             ev.AddListener(listener);
             ev.Unsuspend();
             ev.Invoke(EventArgs.Empty);
@@ -60,8 +60,8 @@ namespace Xpand.Events.Tests {
 
         [Test]
         public void ExceptionCatch() {
-            SafeXArgEvent<EventArgs> ev = new SafeXArgEvent<EventArgs>();
-            EventHandler listener = (args) => throw new Exception();
+            XSafeArgEvent<EventArgs> ev = new XSafeArgEvent<EventArgs>();
+            ArgsEventHandler listener = (args) => throw new Exception();
             ev.AddListener(listener);
             ev.Invoke(EventArgs.Empty);
             Assert.Pass();
@@ -69,8 +69,8 @@ namespace Xpand.Events.Tests {
 
         [Test]
         public void Logging() {
-            SafeXArgEvent<EventArgs> ev = new SafeXArgEvent<EventArgs>();
-            EventHandler listener = (args) => throw new Exception();
+            XSafeArgEvent<EventArgs> ev = new XSafeArgEvent<EventArgs>();
+            ArgsEventHandler listener = (args) => throw new Exception();
             ev.AddListener(listener);
             
             bool wasOnCalled = false;
@@ -92,8 +92,8 @@ namespace Xpand.Events.Tests {
 
         [Test]
         public void ImplicitLogging() {
-            SafeXArgEvent<EventArgs> ev = new SafeXArgEvent<EventArgs>();
-            EventHandler listener = (args) => throw new Exception();
+            XSafeArgEvent<EventArgs> ev = new XSafeArgEvent<EventArgs>();
+            ArgsEventHandler listener = (args) => throw new Exception();
             ev.AddListener(listener);
             
             bool wasCalled = false;

@@ -1,10 +1,6 @@
-﻿using System;
-
-namespace Xpand.Events {
+﻿namespace Xpand.Events {
     
-    public class XArgEvent<TSender, TEventArgs> : BaseEvent<EventHandler<TSender, TEventArgs>> 
-        where TEventArgs : EventArgs
-    {
+    public class XArgEvent<TSender, TEventArgs> : BaseEvent<ArgsEventHandler<TSender, TEventArgs>> where TEventArgs : EventArgs {
 
         public void Invoke(TSender sender, TEventArgs args) {
             if (IsSuspended) return;
@@ -16,7 +12,7 @@ namespace Xpand.Events {
 
     }
 
-    public class XArgEvent<TEventArgs> : BaseEvent<EventHandler<TEventArgs>> where TEventArgs : EventArgs {
+    public class XArgEvent<TEventArgs> : BaseEvent<ArgsEventHandler<TEventArgs>> where TEventArgs : EventArgs {
         
         public void Invoke(TEventArgs args) {
             if (IsSuspended) return;

@@ -4,11 +4,11 @@ using NUnit.Framework;
 
 namespace Xpand.Events.Tests {
     [TestFixture]
-    public class SafeOrderedXEventTests {
+    public class XOrderedEventTests {
         
         [Test]
         public void AddRemoveContainsOps() {
-            SafeOrderedXEvent ev = new SafeOrderedXEvent();
+            XOrderedEvent ev = new XOrderedEvent();
             bool wasCalled = false;
             Event listener = () => wasCalled = true;
             ev.AddListener(listener);
@@ -21,7 +21,7 @@ namespace Xpand.Events.Tests {
         
         [Test]
         public void NoDuplicateListeners() {
-            SafeOrderedXEvent ev = new SafeOrderedXEvent();
+            XOrderedEvent ev = new XOrderedEvent();
             Event listener = () => {};
             bool a1 = ev.AddListener(listener);
             bool a2 = ev.AddListener(listener);
@@ -31,7 +31,7 @@ namespace Xpand.Events.Tests {
         [Test]
         public void NullSafeInvoke() {
             //TODO use listener from external dll, dealloc it before use
-            SafeOrderedXEvent ev = new SafeOrderedXEvent();
+            XOrderedEvent ev = new XOrderedEvent();
             ev.AddListener(null);
             ev.Invoke();
             Assert.IsTrue(ev.Subscriptions.Length == 0);
@@ -39,7 +39,7 @@ namespace Xpand.Events.Tests {
 
         [Test]
         public void SuspendWorks() {
-            SafeOrderedXEvent ev = new SafeOrderedXEvent();
+            XOrderedEvent ev = new XOrderedEvent();
             bool wasCalled = false;
             Event listener = () => wasCalled = true;
             ev.AddListener(listener);
@@ -50,7 +50,7 @@ namespace Xpand.Events.Tests {
         
         [Test]
         public void UnsuspendWorks() {
-            SafeOrderedXEvent ev = new SafeOrderedXEvent();
+            XOrderedEvent ev = new XOrderedEvent();
             bool wasCalled = false;
             Event listener = () => wasCalled = true;
             ev.AddListener(listener);
@@ -60,56 +60,8 @@ namespace Xpand.Events.Tests {
         }
 
         [Test]
-        public void ExceptionCatch() {
-            SafeOrderedXEvent ev = new SafeOrderedXEvent();
-            Event listener = () => throw new Exception();
-            ev.AddListener(listener);
-            ev.Invoke();
-            Assert.Pass();
-        }
-
-        [Test]
-        public void Logging() {
-            SafeOrderedXEvent ev = new SafeOrderedXEvent();
-            Event listener = () => throw new Exception();
-            ev.AddListener(listener);
-            
-            bool wasOnCalled = false;
-            XpandEventsConfig.LogLevel = LogLevel.Exception;
-            XEventLogger.ExceptionDelegate onExListener = exception => wasOnCalled = true;
-            XEventLogger.Exception += onExListener;
-            ev.Invoke();
-            XEventLogger.Exception -= onExListener;
-            
-            bool wasOffCalled = false;
-            XpandEventsConfig.LogLevel = LogLevel.None;
-            XEventLogger.ExceptionDelegate offExListener = exception => wasOffCalled = true;
-            XEventLogger.Exception += offExListener;
-            ev.Invoke();
-            XEventLogger.Exception -= offExListener;
-            
-            Assert.IsTrue(wasOnCalled && !wasOffCalled);
-        }
-
-        [Test]
-        public void ImplicitLogging() {
-            SafeOrderedXEvent ev = new SafeOrderedXEvent();
-            Event listener = () => throw new Exception();
-            ev.AddListener(listener);
-            
-            bool wasCalled = false;
-            XpandEventsConfig.LogLevel = LogLevel.None;
-            XEventLogger.ExceptionDelegate exListener = exception => wasCalled = true;
-            XEventLogger.ImplicitException += exListener;
-            ev.Invoke();
-            XEventLogger.ImplicitException -= exListener;
-            
-            Assert.IsTrue(wasCalled);
-        }
-        
-        [Test]
         public void SubscriptionsArrayOrder() {
-            SafeOrderedXEvent ev = new SafeOrderedXEvent();
+            XOrderedEvent ev = new XOrderedEvent();
             List<int> callStack = new List<int>();
             
             Event l1 = () => { callStack.Add(1); };
@@ -144,10 +96,11 @@ namespace Xpand.Events.Tests {
 
         [Test]
         public void InvokeOrder() {
-            SafeOrderedXEvent ev = new SafeOrderedXEvent();
+            XOrderedEvent ev = new XOrderedEvent();
             List<int> callStack = new List<int>();
             List<Action> addActions = new List<Action>();
 
+            
             Event l1 = () => { callStack.Add(1); };
             Event l2 = () => { callStack.Add(2); };
             Event l3 = () => { callStack.Add(3); };
@@ -175,5 +128,6 @@ namespace Xpand.Events.Tests {
             for (int i = 0; i < callStack.Count; i++) builtOrder += callStack[i] * (int)Math.Pow(10, callStack.Count-i-1);
             Assert.IsTrue(builtOrder == expectedOrder, $"Expected order: {expectedOrder}; Built order: {builtOrder}");
         }
+        
     }
 }

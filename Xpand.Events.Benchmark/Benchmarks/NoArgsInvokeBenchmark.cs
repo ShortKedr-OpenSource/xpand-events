@@ -16,9 +16,9 @@ namespace Xpand.Events.Benchmark {
         private event Event DefaultEvent;
         
         private XEvent _xEvent;
-        private SafeXEvent _safeXEvent;
-        private OrderedXEvent _orderedXEvent;
-        private SafeOrderedXEvent _orderedSafeXEvent;
+        private XSafeEvent _XSafeEvent;
+        private XOrderedEvent _XOrderedEvent;
+        private XSafeOrderedEvent _orderedXSafeEvent;
 
         private Event[] _listeners;
 
@@ -28,9 +28,9 @@ namespace Xpand.Events.Benchmark {
             DefaultEvent = null;
 
             _xEvent = new XEvent();
-            _safeXEvent = new SafeXEvent();
-            _orderedXEvent = new OrderedXEvent();
-            _orderedSafeXEvent = new SafeOrderedXEvent();
+            _XSafeEvent = new XSafeEvent();
+            _XOrderedEvent = new XOrderedEvent();
+            _orderedXSafeEvent = new XSafeOrderedEvent();
 
             int GetValue(int value) => value;
 
@@ -45,9 +45,9 @@ namespace Xpand.Events.Benchmark {
                 };
                 DefaultEvent += _listeners[i];
                 bool a = _xEvent.AddListener(_listeners[i]);
-                bool b = _safeXEvent.AddListener(_listeners[i]);
-                bool c = _orderedXEvent.AddListener(_listeners[i]);
-                bool d = _orderedSafeXEvent.AddListener(_listeners[i]);
+                bool b = _XSafeEvent.AddListener(_listeners[i]);
+                bool c = _XOrderedEvent.AddListener(_listeners[i]);
+                bool d = _orderedXSafeEvent.AddListener(_listeners[i]);
                 Console.WriteLine($"{a} {b} {c} {d}");
                 if (!a || !b || !c || !d) validationSuccess = false;
             }
@@ -59,20 +59,20 @@ namespace Xpand.Events.Benchmark {
         public void DefaultEvent_Invoke() => DefaultEvent?.Invoke();
 
         
-        [Benchmark(Description = "`XEvent.Invoke()`")]
+        [Benchmark(Description = "`XArgEvent.Invoke()`")]
         public void XEvent_Invoke() => _xEvent.Invoke();
         
         
-        [Benchmark(Description = "`SafeXEvent.Invoke()`")]
-        public void SafeXEvent_Invoke() => _safeXEvent.Invoke();
+        [Benchmark(Description = "`XSafeEvent.Invoke()`")]
+        public void XSafeEvent_Invoke() => _XSafeEvent.Invoke();
 
         
-        [Benchmark(Description = "`OrderedXEvent.Invoke()`")]
-        public void OrderedXEvent_Invoke() => _orderedXEvent.Invoke();
+        [Benchmark(Description = "`XOrderedEvent.Invoke()`")]
+        public void XOrderedEvent_Invoke() => _XOrderedEvent.Invoke();
         
         
-        [Benchmark(Description = "`OrderedSafeXEvent.Invoke()`")]
-        public void OrderedSafeXEvent_Invoke() => _orderedSafeXEvent.Invoke();
+        [Benchmark(Description = "`OrderedXSafeEvent.Invoke()`")]
+        public void OrderedXSafeEvent_Invoke() => _orderedXSafeEvent.Invoke();
         
     }
 }

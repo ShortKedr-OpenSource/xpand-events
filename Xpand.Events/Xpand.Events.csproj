@@ -3,8 +3,8 @@
     <PropertyGroup>
         <TransformOnBuild>true</TransformOnBuild>
         <Authors>Nikolay Nakorkeshko</Authors>
-        <TargetFrameworks>net451;net452;net46;net461;net471;net472;net5.0</TargetFrameworks>
         <LangVersion>8</LangVersion>
+        <TargetFramework>netstandard2.0</TargetFramework>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
@@ -16,33 +16,52 @@
         <Generator>TextTemplatingFileGenerator</Generator>
         <LastGenOutput>XEvent.cs</LastGenOutput>
       </None>
-      <None Update="Generated\SafeXEvent.tt">
+      <None Update="Generated\XSafeEvent.tt">
         <Generator>TextTemplatingFileGenerator</Generator>
-        <LastGenOutput>SafeXEvent.cs</LastGenOutput>
+        <LastGenOutput>XSafeEvent.cs</LastGenOutput>
       </None>
       <None Update="Generated\EventDelegate.tt">
         <Generator>TextTemplatingFileGenerator</Generator>
         <LastGenOutput>EventDelegate.cs</LastGenOutput>
       </None>
-      <None Update="Generated\OrderedXEvent.tt">
+      <None Update="Generated\XOrderedEvent.tt">
         <Generator>TextTemplatingFileGenerator</Generator>
-        <LastGenOutput>OrderedXEvent.cs</LastGenOutput>
+        <LastGenOutput>XOrderedEvent.cs</LastGenOutput>
       </None>
-      <None Update="Generated\SafeOrdereredXEvent.tt">
+      <None Update="Generated\XSafeOrdereredEvent.tt">
         <Generator>TextTemplatingFileGenerator</Generator>
-        <LastGenOutput>SafeOrdereredXEvent.cs</LastGenOutput>
+        <LastGenOutput>XSafeOrdereredEvent.cs</LastGenOutput>
       </None>
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Update="Generated\SafeOrdereredXEvent.cs">
-        <AutoGen>True</AutoGen>
-        <DesignTime>True</DesignTime>
-        <DependentUpon>SafeOrdereredXEvent.tt</DependentUpon>
-      </Compile>
       <Compile Update="Generated\EventDelegate.cs">
         <DependentUpon>EventDelegate.tt</DependentUpon>
       </Compile>
+      <Compile Update="Generated\XEvent.cs">
+        <AutoGen>True</AutoGen>
+        <DesignTime>True</DesignTime>
+        <DependentUpon>XEvent.tt</DependentUpon>
+      </Compile>
+      <Compile Update="Generated\XOrderedEvent.cs">
+        <AutoGen>True</AutoGen>
+        <DesignTime>True</DesignTime>
+        <DependentUpon>XOrderedEvent.tt</DependentUpon>
+      </Compile>
+      <Compile Update="Generated\XSafeEvent.cs">
+        <AutoGen>True</AutoGen>
+        <DesignTime>True</DesignTime>
+        <DependentUpon>XSafeEvent.tt</DependentUpon>
+      </Compile>
+      <Compile Update="Generated\XSafeOrdereredEvent.cs">
+        <AutoGen>True</AutoGen>
+        <DesignTime>True</DesignTime>
+        <DependentUpon>XSafeOrdereredEvent.tt</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Aliases" />
     </ItemGroup>
 
 </Project>

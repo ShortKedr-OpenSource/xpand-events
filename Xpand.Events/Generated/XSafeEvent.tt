@@ -3,23 +3,24 @@
 <#@ output extension=".cs" encoding="utf-8" #>
 <#@ include file="Includes/Operations.ttinclude"#>
 <#@ include file="Includes/EventGenerationConfig.ttinclude"#>
+using System;
 
 namespace Xpand.Events { 
 
 <#
     for (int i = 0; i <= EventMaxParamCount; i++) {
 #>
-    public class OrderedXEvent<#= BuildTemplateDefinitionParams(i) #> : BaseOrderedEvent<Event<#= BuildTemplateDefinitionParams(i) #>> {
+    public class XSafeEvent<#= BuildTemplateDefinitionParams(i) #> : BaseEvent<Event<#= BuildTemplateDefinitionParams(i) #>> {
 
         public void Invoke(<#= BuildTemplateMethodParams(i) #>){
             if (IsSuspended) return;
             PrepareInvoke();
-            var orderLists = _subscriptions.Values;
-            for (int i = 0; i < orderLists.Count; i++) {
-                var subscriptions = orderLists[i];
-                for (int j = 0; j < subscriptions.Count; j++) {
-                    subscriptions[j].Invoke(<#= BuildTemplateUseParams(i) #>);
-                }
+            for (int i = 0; i < _subscriptions.Count; i++) {
+                try {
+                    _subscriptions[i].Invoke(<#= BuildTemplateUseParams(i) #>);
+                } catch(Exception e){
+                    XEventLogger.LogException(e);
+                } 
             }
         }
 

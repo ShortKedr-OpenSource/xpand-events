@@ -11,18 +11,18 @@ namespace Xpand.Events.Benchmark {
         private event Event DefaultEvent;
 #pragma warning restore CS0067
         private XEvent _xEvent;
-        private SafeXEvent _safeXEvent;
-        private OrderedXEvent _orderedXEvent;
-        private SafeOrderedXEvent _orderedSafeXEvent;
+        private XSafeEvent _XSafeEvent;
+        private XOrderedEvent _XOrderedEvent;
+        private XSafeOrderedEvent _orderedXSafeEvent;
         
         private Event _listener;
 
         [GlobalSetup]
         public void Setup() {
             _xEvent = new XEvent();
-            _safeXEvent = new SafeXEvent();
-            _orderedXEvent = new OrderedXEvent();
-            _orderedSafeXEvent = new SafeOrderedXEvent();
+            _XSafeEvent = new XSafeEvent();
+            _XOrderedEvent = new XOrderedEvent();
+            _orderedXSafeEvent = new XSafeOrderedEvent();
 
             int NotSuppressedMethod() => 5;
             _listener = () => { int value = NotSuppressedMethod(); };
@@ -35,12 +35,12 @@ namespace Xpand.Events.Benchmark {
         public void XEvent_Subscribe() => _xEvent.AddListener(_listener);
 
         [Benchmark]
-        public void SafeXEvent_Subscribe() => _safeXEvent.AddListener(_listener);
+        public void XSafeEvent_Subscribe() => _XSafeEvent.AddListener(_listener);
 
         [Benchmark]
-        public void OrderedXEvent_Subscribe() => _orderedXEvent.AddListener(_listener);
+        public void XOrderedEvent_Subscribe() => _XOrderedEvent.AddListener(_listener);
         
         [Benchmark]
-        public void OrderedSafeXEvent_Subscribe() => _orderedSafeXEvent.AddListener(_listener);
+        public void OrderedXSafeEvent_Subscribe() => _orderedXSafeEvent.AddListener(_listener);
         }
 }
