@@ -2,7 +2,7 @@
 
 namespace Xpand.Events {
     
-    public class XSafeArgEvent<TSender, TEventArgs> : BaseEvent<ArgsEventHandler<TSender, TEventArgs>> 
+    public class SafeXArgEvent<TSender, TEventArgs> : BaseEvent<ArgsEventHandler<TSender, TEventArgs>> 
         where TEventArgs : EventArgs
     {
 
@@ -20,7 +20,7 @@ namespace Xpand.Events {
 
     }
 
-    public class XSafeArgEvent<TEventArgs> : BaseEvent<ArgsEventHandler<TEventArgs>> where TEventArgs : EventArgs {
+    public class SafeXArgEvent<TEventArgs> : BaseEvent<ArgsEventHandler<TEventArgs>> where TEventArgs : EventArgs {
         
         public void Invoke(TEventArgs args) {
             if (IsSuspended) return;

@@ -1,5 +1,5 @@
 ﻿namespace Xpand.Events {
-    public class XOrderedArgEvent<TSender, TEventArgs> : BaseOrderedEvent<ArgsEventHandler<TSender, TEventArgs>> 
+    public class OrderedXArgEvent<TSender, TEventArgs> : BaseOrderedEvent<ArgsEventHandler<TSender, TEventArgs>> 
         where TEventArgs : EventArgs
     {
 
@@ -17,7 +17,7 @@
 
     }
 
-    public class XOrderedArgEvent<TEventArgs> : BaseOrderedEvent<ArgsEventHandler<TEventArgs>> where TEventArgs : EventArgs {
+    public class OrderedXArgEvent<TEventArgs> : BaseOrderedEvent<ArgsEventHandler<TEventArgs>> where TEventArgs : EventArgs {
         
         public void Invoke(TEventArgs args) {
             if (IsSuspended) return;

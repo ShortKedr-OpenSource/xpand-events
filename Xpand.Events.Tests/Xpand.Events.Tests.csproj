@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net5.0</TargetFramework>
+        <TargetFramework>net45</TargetFramework>
         <IsPackable>false</IsPackable>
         <TransformOnBuild>true</TransformOnBuild>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
