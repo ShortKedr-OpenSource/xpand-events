@@ -7,6 +7,7 @@ The addition to default .NET events, that solve some of it's problems.
 
 
 # Table of contents
+ * [Requirements](#requirements)
  * [Hot to use](#how-to-use)
  * [Install](#install)
    * [Assembly DLL](#install-assembly)
@@ -17,6 +18,13 @@ The addition to default .NET events, that solve some of it's problems.
  * [Multithreading](#multithreading)
  * [Use with Unity Engine](#use-with-unity)
 
+
+# <a id="requirements"></a>Requirements
+* **Min language version:** C# 8.0;  
+* **Recomended language version**: C# 9.0;  
+* **Target Framework:** .NET Standard 2.0, .NET Framework 4.5;  
+
+With C# 9.0 you will able to use `record` events
 
 # <a id="how-to-use"></a>Hot to use
 There will be some useful info soon
