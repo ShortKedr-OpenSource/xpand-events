@@ -7,6 +7,7 @@ The addition to default .NET events, that solve some of it's problems.
 
 
 # Table of contents
+ * [Requirements](#requirements)
  * [Hot to use](#how-to-use)
  * [Install](#install)
    * [Assembly DLL](#install-assembly)
@@ -83,6 +84,10 @@ MaxAbsoluteError=1.0000 ms  MaxRelativeError=0.009999999776482582
 
 ### Subscribe:
 There will listener subscribe benchmark soon
+
+# <a id="requirements"></a>Requirements
+**Min language version:** C# 8.0;
+**Target Framework:** .NET Standard 2.0, .NET Framework 4.5;
 
 # <a id="migrating"></a>Migrating from default events
 There will be some useful info soon
