@@ -19,6 +19,11 @@ The addition to default .NET events, that solve some of it's problems.
  * [Use with Unity Engine](#use-with-unity)
 
 
+# <a id="requirements"></a>Requirements
+**Min language version:** C# 8.0;  
+**Recomended language version**: C# 9.0
+**Target Framework:** .NET Standard 2.0, .NET Framework 4.5;  
+
 # <a id="how-to-use"></a>Hot to use
 There will be some useful info soon
  
@@ -84,10 +89,6 @@ MaxAbsoluteError=1.0000 ms  MaxRelativeError=0.009999999776482582
 
 ### Subscribe:
 There will listener subscribe benchmark soon
-
-# <a id="requirements"></a>Requirements
-**Min language version:** C# 8.0;
-**Target Framework:** .NET Standard 2.0, .NET Framework 4.5;
 
 # <a id="migrating"></a>Migrating from default events
 There will be some useful info soon
