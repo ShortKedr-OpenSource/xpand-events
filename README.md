@@ -22,7 +22,7 @@ The addition to default .NET events, that solve some of it's problems.
 # <a id="requirements"></a>Requirements
 * **Min language version:** C# 8.0;  
 * **Recomended language version**: C# 9.0;  
-* **Target Framework versions:** .NET Standard 2.0, .NET Framework 4.5;  
+* **Target Framework versions:** .NET Standard 2.0, .NET Framework 4.7.1;  
 
 With C# 9.0 you will able to use `record` events. Record events moved to different project, that requires C# 9.0 support
 
