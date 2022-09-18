@@ -9,6 +9,11 @@ The addition to default .NET events, that solve some of it's problems.
 # Table of contents
  * [Requirements](#requirements)
  * [Hot to use](#how-to-use)
+ * [Event usage patterns]
+   * [Implicit pattern]
+   * [Class arguments pattern]
+   * [Tuple arguments pattern]
+   * [Record arguments pattern]
  * [Install](#install)
    * [Assembly DLL](#install-assembly)
    * [Nuget package](#install-nuget)
@@ -26,8 +31,23 @@ The addition to default .NET events, that solve some of it's problems.
 
 With C# 9.0 you will able to use `record` events. Record events moved to different project, that requires C# 9.0 support
 
-# <a id="how-to-use"></a>Hot to use
+# <a id="how-to-use"></a>How to use
 There will be some useful info soon
+
+# <a id="event-usage-patterns"></a>Event usage patterns
+
+## <a id="implicit-pattern"></a>Implicit pattern
+There will be implicit pattern soon
+
+## <a id="class-arguments-pattern"></a>Class arguments pattern
+There will be class arguments pattern soon
+
+## <a id="tuple-arguments-pattern"></a>Tuple arguments pattern
+There will be tuple arguments pattern soon
+
+## <a id="record-arguments-pattern"></a>Record arguments pattern
+There will be record arguments pattern soon
+ 
  
 # <a id="install"></a>Install
 There will be some useful info soon
@@ -37,6 +57,7 @@ There will be some useful info soon
 
 ## <a id="install-nuget"></a>Nuget package
 There will be some useful info soon
+ 
  
 # <a id="performance"></a>Performance
 Source code for benchmark presented in `Xpand.Events.Benchmark` project.  
