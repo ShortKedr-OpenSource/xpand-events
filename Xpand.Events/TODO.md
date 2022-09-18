@@ -1,26 +1,19 @@
 ### Events
-2. Async/Await Events
-3. Async/Callback Events
-4. Multithreading Events
-5. Add xml docs to public content
-6. Override += and -= operators (easy migration from default events)
-8. Short Aliases?
-
-### Tests
-1. Implement tests for XArgEvent<TSender, TEventArgs>
+9. Remove unique listener function since it makes bugs with inline listeners
+5. XUniqueEvent
+6. Add xml docs to public content
+2. Async/Await Events?
+3. Async/Callback Events?
+4. Multithreading Events?
 
 ### Benchmark
-1. Parametrization - iteration count;
-2. Column "Code usage";
-3. Benchmark - Invoke
-
-### Examples
-1. Implement examples: XEvent, SafeXEvent, OrderedXEvent, OrderedSafeXEvent;
-2. Implement examples: XArgEvent<TEventArgs>, XArgEvent<TSender, TEventArgs>;
-3. Implement examples: Async/Await, Async/Callback;
-4. Implement examples: Multithreading Invocation;
+1. Benchmarks for events with args: ```object sender, string newValue```
   
+### Examples
+1. Logging usage example
+
 ### GitHub
+2. implement build pipeline;
 1. Add playground?
 
 ### Unity

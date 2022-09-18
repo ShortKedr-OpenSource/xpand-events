@@ -4,11 +4,11 @@ using NUnit.Framework;
 
 namespace Xpand.Events.Tests {
     [TestFixture]
-    public class XOrderedEventTests {
+    public class OrderedXEventTests {
         
         [Test]
         public void AddRemoveContainsOps() {
-            XOrderedEvent ev = new XOrderedEvent();
+            OrderedXEvent ev = new OrderedXEvent();
             bool wasCalled = false;
             Event listener = () => wasCalled = true;
             ev.AddListener(listener);
@@ -21,7 +21,7 @@ namespace Xpand.Events.Tests {
         
         [Test]
         public void NoDuplicateListeners() {
-            XOrderedEvent ev = new XOrderedEvent();
+            OrderedXEvent ev = new OrderedXEvent();
             Event listener = () => {};
             bool a1 = ev.AddListener(listener);
             bool a2 = ev.AddListener(listener);
@@ -31,7 +31,7 @@ namespace Xpand.Events.Tests {
         [Test]
         public void NullSafeInvoke() {
             //TODO use listener from external dll, dealloc it before use
-            XOrderedEvent ev = new XOrderedEvent();
+            OrderedXEvent ev = new OrderedXEvent();
             ev.AddListener(null);
             ev.Invoke();
             Assert.IsTrue(ev.Subscriptions.Length == 0);
@@ -39,7 +39,7 @@ namespace Xpand.Events.Tests {
 
         [Test]
         public void SuspendWorks() {
-            XOrderedEvent ev = new XOrderedEvent();
+            OrderedXEvent ev = new OrderedXEvent();
             bool wasCalled = false;
             Event listener = () => wasCalled = true;
             ev.AddListener(listener);
@@ -50,7 +50,7 @@ namespace Xpand.Events.Tests {
         
         [Test]
         public void UnsuspendWorks() {
-            XOrderedEvent ev = new XOrderedEvent();
+            OrderedXEvent ev = new OrderedXEvent();
             bool wasCalled = false;
             Event listener = () => wasCalled = true;
             ev.AddListener(listener);
@@ -61,7 +61,7 @@ namespace Xpand.Events.Tests {
 
         [Test]
         public void SubscriptionsArrayOrder() {
-            XOrderedEvent ev = new XOrderedEvent();
+            OrderedXEvent ev = new OrderedXEvent();
             List<int> callStack = new List<int>();
             
             Event l1 = () => { callStack.Add(1); };
@@ -96,7 +96,7 @@ namespace Xpand.Events.Tests {
 
         [Test]
         public void InvokeOrder() {
-            XOrderedEvent ev = new XOrderedEvent();
+            OrderedXEvent ev = new OrderedXEvent();
             List<int> callStack = new List<int>();
             List<Action> addActions = new List<Action>();
 

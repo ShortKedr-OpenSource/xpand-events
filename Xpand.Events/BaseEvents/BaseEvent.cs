@@ -18,7 +18,7 @@ namespace Xpand.Events {
         public bool IsSuspended => _isSuspended;
 
         public T[] Subscriptions => _subscriptions.ToArray();
-
+        
 
         public BaseEvent() {
             _subscriptions = new List<T>(XpandEventsConfig.DefaultSubscriptionsBuffer);

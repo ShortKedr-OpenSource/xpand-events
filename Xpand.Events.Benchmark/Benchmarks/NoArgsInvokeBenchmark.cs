@@ -1,7 +1,5 @@
 ﻿using System;
 using BenchmarkDotNet.Attributes;
-using BenchmarkDotNet.Configs;
-using BenchmarkDotNet.Loggers;
 using Xpand.Events.Benchmark.Configs;
 using Xpand.Events.Benchmark.SupportingTypes;
 
@@ -16,9 +14,9 @@ namespace Xpand.Events.Benchmark {
         private event Event DefaultEvent;
         
         private XEvent _xEvent;
-        private XSafeEvent _XSafeEvent;
-        private XOrderedEvent _XOrderedEvent;
-        private XSafeOrderedEvent _orderedXSafeEvent;
+        private SafeXEvent _safeXEvent;
+        private OrderedXEvent _orderedXEvent;
+        private SafeOrderedXEvent _safeOrderedXEvent;
 
         private Event[] _listeners;
 
@@ -28,9 +26,9 @@ namespace Xpand.Events.Benchmark {
             DefaultEvent = null;
 
             _xEvent = new XEvent();
-            _XSafeEvent = new XSafeEvent();
-            _XOrderedEvent = new XOrderedEvent();
-            _orderedXSafeEvent = new XSafeOrderedEvent();
+            _safeXEvent = new SafeXEvent();
+            _orderedXEvent = new OrderedXEvent();
+            _safeOrderedXEvent = new SafeOrderedXEvent();
 
             int GetValue(int value) => value;
 
@@ -45,9 +43,9 @@ namespace Xpand.Events.Benchmark {
                 };
                 DefaultEvent += _listeners[i];
                 bool a = _xEvent.AddListener(_listeners[i]);
-                bool b = _XSafeEvent.AddListener(_listeners[i]);
-                bool c = _XOrderedEvent.AddListener(_listeners[i]);
-                bool d = _orderedXSafeEvent.AddListener(_listeners[i]);
+                bool b = _safeXEvent.AddListener(_listeners[i]);
+                bool c = _orderedXEvent.AddListener(_listeners[i]);
+                bool d = _safeOrderedXEvent.AddListener(_listeners[i]);
                 Console.WriteLine($"{a} {b} {c} {d}");
                 if (!a || !b || !c || !d) validationSuccess = false;
             }
@@ -55,24 +53,24 @@ namespace Xpand.Events.Benchmark {
             if (!validationSuccess) throw new Exception("Global Setup Error");
         }
 
-        [Benchmark(Baseline = true, Description = "`DefaultEvent?.Invoke()`")]
+        [Benchmark(Baseline = true, Description = "`DefaultEvent?.Invoke();`")]
         public void DefaultEvent_Invoke() => DefaultEvent?.Invoke();
 
         
-        [Benchmark(Description = "`XArgEvent.Invoke()`")]
+        [Benchmark(Description = "`XEvent.Invoke();`")]
         public void XEvent_Invoke() => _xEvent.Invoke();
         
         
-        [Benchmark(Description = "`XSafeEvent.Invoke()`")]
-        public void XSafeEvent_Invoke() => _XSafeEvent.Invoke();
+        [Benchmark(Description = "`SafeXEvent.Invoke();`")]
+        public void SafeXEvent_Invoke() => _safeXEvent.Invoke();
 
         
-        [Benchmark(Description = "`XOrderedEvent.Invoke()`")]
-        public void XOrderedEvent_Invoke() => _XOrderedEvent.Invoke();
+        [Benchmark(Description = "`OrderedXEvent.Invoke();`")]
+        public void OrderedXEvent_Invoke() => _orderedXEvent.Invoke();
         
         
-        [Benchmark(Description = "`OrderedXSafeEvent.Invoke()`")]
-        public void OrderedXSafeEvent_Invoke() => _orderedXSafeEvent.Invoke();
+        [Benchmark(Description = "`SafeOrderedXEvent.Invoke();`")]
+        public void SafeOrderedXEvent_Invoke() => _safeOrderedXEvent.Invoke();
         
     }
 }

@@ -1,8 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net5.0</TargetFramework>
-        <OutputType>Exe</OutputType>
+        <TargetFrameworks>net471;netstandard2.0</TargetFrameworks>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
@@ -15,13 +14,6 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Xpand.Events\Xpand.Events.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Benchmarks\RecordEvents" />
-      <Folder Include="Benchmarks\TupleEvents" />
-      <Folder Include="Benchmarks\ArgEvents" />
-      <Folder Include="Benchmarks\Events" />
     </ItemGroup>
     
 </Project>

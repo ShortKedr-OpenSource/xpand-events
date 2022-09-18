@@ -1,11 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net45</TargetFramework>
         <IsPackable>false</IsPackable>
         <TransformOnBuild>true</TransformOnBuild>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <RootNamespace>Tests</RootNamespace>
+        <TargetFrameworks>net471;netstandard2.0</TargetFrameworks>
+        <LangVersion>9</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>

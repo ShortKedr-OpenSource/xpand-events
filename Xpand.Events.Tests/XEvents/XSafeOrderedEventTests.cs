@@ -4,11 +4,11 @@ using NUnit.Framework;
 
 namespace Xpand.Events.Tests {
     [TestFixture]
-    public class XSafeOrderedEventTests {
+    public class SafeOrderedXEventTests {
         
         [Test]
         public void AddRemoveContainsOps() {
-            XSafeOrderedEvent ev = new XSafeOrderedEvent();
+            SafeOrderedXEvent ev = new SafeOrderedXEvent();
             bool wasCalled = false;
             Event listener = () => wasCalled = true;
             ev.AddListener(listener);
@@ -21,7 +21,7 @@ namespace Xpand.Events.Tests {
         
         [Test]
         public void NoDuplicateListeners() {
-            XSafeOrderedEvent ev = new XSafeOrderedEvent();
+            SafeOrderedXEvent ev = new SafeOrderedXEvent();
             Event listener = () => {};
             bool a1 = ev.AddListener(listener);
             bool a2 = ev.AddListener(listener);
@@ -31,7 +31,7 @@ namespace Xpand.Events.Tests {
         [Test]
         public void NullSafeInvoke() {
             //TODO use listener from external dll, dealloc it before use
-            XSafeOrderedEvent ev = new XSafeOrderedEvent();
+            SafeOrderedXEvent ev = new SafeOrderedXEvent();
             ev.AddListener(null);
             ev.Invoke();
             Assert.IsTrue(ev.Subscriptions.Length == 0);
@@ -39,7 +39,7 @@ namespace Xpand.Events.Tests {
 
         [Test]
         public void SuspendWorks() {
-            XSafeOrderedEvent ev = new XSafeOrderedEvent();
+            SafeOrderedXEvent ev = new SafeOrderedXEvent();
             bool wasCalled = false;
             Event listener = () => wasCalled = true;
             ev.AddListener(listener);
@@ -50,7 +50,7 @@ namespace Xpand.Events.Tests {
         
         [Test]
         public void UnsuspendWorks() {
-            XSafeOrderedEvent ev = new XSafeOrderedEvent();
+            SafeOrderedXEvent ev = new SafeOrderedXEvent();
             bool wasCalled = false;
             Event listener = () => wasCalled = true;
             ev.AddListener(listener);
@@ -61,7 +61,7 @@ namespace Xpand.Events.Tests {
 
         [Test]
         public void ExceptionCatch() {
-            XSafeOrderedEvent ev = new XSafeOrderedEvent();
+            SafeOrderedXEvent ev = new SafeOrderedXEvent();
             Event listener = () => throw new Exception();
             ev.AddListener(listener);
             ev.Invoke();
@@ -70,7 +70,7 @@ namespace Xpand.Events.Tests {
 
         [Test]
         public void Logging() {
-            XSafeOrderedEvent ev = new XSafeOrderedEvent();
+            SafeOrderedXEvent ev = new SafeOrderedXEvent();
             Event listener = () => throw new Exception();
             ev.AddListener(listener);
             
@@ -93,7 +93,7 @@ namespace Xpand.Events.Tests {
 
         [Test]
         public void ImplicitLogging() {
-            XSafeOrderedEvent ev = new XSafeOrderedEvent();
+            SafeOrderedXEvent ev = new SafeOrderedXEvent();
             Event listener = () => throw new Exception();
             ev.AddListener(listener);
             
@@ -109,7 +109,7 @@ namespace Xpand.Events.Tests {
         
         [Test]
         public void SubscriptionsArrayOrder() {
-            XSafeOrderedEvent ev = new XSafeOrderedEvent();
+            SafeOrderedXEvent ev = new SafeOrderedXEvent();
             List<int> callStack = new List<int>();
             
             Event l1 = () => { callStack.Add(1); };
@@ -144,7 +144,7 @@ namespace Xpand.Events.Tests {
 
         [Test]
         public void InvokeOrder() {
-            XSafeOrderedEvent ev = new XSafeOrderedEvent();
+            SafeOrderedXEvent ev = new SafeOrderedXEvent();
             List<int> callStack = new List<int>();
             List<Action> addActions = new List<Action>();
 

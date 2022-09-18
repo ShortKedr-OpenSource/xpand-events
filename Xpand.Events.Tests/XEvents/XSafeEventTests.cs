@@ -3,10 +3,10 @@ using NUnit.Framework;
 
 namespace Xpand.Events.Tests {
     [TestFixture]
-    public class XSafeEventTests {
+    public class SafeXEventTests {
         [Test]
         public void AddRemoveContainsOps() {
-            XSafeEvent ev = new XSafeEvent();
+            SafeXEvent ev = new SafeXEvent();
             bool wasCalled = false;
             Event listener = () => wasCalled = true;
             ev.AddListener(listener);
@@ -19,7 +19,7 @@ namespace Xpand.Events.Tests {
         
         [Test]
         public void NoDuplicateListeners() {
-            XSafeEvent ev = new XSafeEvent();
+            SafeXEvent ev = new SafeXEvent();
             Event listener = () => {};
             bool a1 = ev.AddListener(listener);
             bool a2 = ev.AddListener(listener);
@@ -29,7 +29,7 @@ namespace Xpand.Events.Tests {
         [Test]
         public void NullSafeInvoke() {
             //TODO use listener from external dll, dealloc it before use
-            XSafeEvent ev = new XSafeEvent();
+            SafeXEvent ev = new SafeXEvent();
             ev.AddListener(null);
             ev.Invoke();
             Assert.IsTrue(ev.Subscriptions.Length == 0);
@@ -37,7 +37,7 @@ namespace Xpand.Events.Tests {
 
         [Test]
         public void SuspendWorks() {
-            XSafeEvent ev = new XSafeEvent();
+            SafeXEvent ev = new SafeXEvent();
             bool wasCalled = false;
             Event listener = () => wasCalled = true;
             ev.AddListener(listener);
@@ -48,7 +48,7 @@ namespace Xpand.Events.Tests {
         
         [Test]
         public void UnsuspendWorks() {
-            XSafeEvent ev = new XSafeEvent();
+            SafeXEvent ev = new SafeXEvent();
             bool wasCalled = false;
             Event listener = () => wasCalled = true;
             ev.AddListener(listener);
@@ -59,7 +59,7 @@ namespace Xpand.Events.Tests {
 
         [Test]
         public void ExceptionCatch() {
-            XSafeEvent ev = new XSafeEvent();
+            SafeXEvent ev = new SafeXEvent();
             Event listener = () => throw new Exception();
             ev.AddListener(listener);
             ev.Invoke();
@@ -68,7 +68,7 @@ namespace Xpand.Events.Tests {
 
         [Test]
         public void Logging() {
-            XSafeEvent ev = new XSafeEvent();
+            SafeXEvent ev = new SafeXEvent();
             Event listener = () => throw new Exception();
             ev.AddListener(listener);
             
@@ -91,7 +91,7 @@ namespace Xpand.Events.Tests {
 
         [Test]
         public void ImplicitLogging() {
-            XSafeEvent ev = new XSafeEvent();
+            SafeXEvent ev = new SafeXEvent();
             Event listener = () => throw new Exception();
             ev.AddListener(listener);
             
