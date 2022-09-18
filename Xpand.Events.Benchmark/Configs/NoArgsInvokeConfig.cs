@@ -9,11 +9,11 @@ using Perfolizer.Horology;
 namespace Xpand.Events.Benchmark.Configs {
     public class NoArgsInvokeConfig : ManualConfig {
         public NoArgsInvokeConfig() {
-            
+
             SummaryStyle = SummaryStyle.Default.WithRatioStyle(RatioStyle.Trend).WithTimeUnit(TimeUnit.Microsecond);
 
             AddJob(new Job() {
-                Accuracy = {MaxRelativeError = 0.01f, MaxAbsoluteError = TimeInterval.FromMilliseconds(1.0d)}
+                Accuracy = {MaxRelativeError = 0.01f, MaxAbsoluteError = TimeInterval.FromMilliseconds(1.0d)},
             });
             
             AddExporter(CsvExporter.Default);

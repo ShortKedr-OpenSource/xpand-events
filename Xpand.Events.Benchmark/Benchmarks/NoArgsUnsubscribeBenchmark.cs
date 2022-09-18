@@ -9,11 +9,8 @@ namespace Xpand.Events.Benchmark {
     public class NoArgsUnsubscribeBenchmark {
         [Params(10, 50, 100, 1000, 10000)]
         public int SubscriptionCount { get; set; }
-
-// Disable method is never invoked warning
-#pragma warning disable CS0067 
+        
         private event Event DefaultEvent;
-#pragma warning restore CS0067
         
         private XEvent _xEvent;
         private SafeXEvent _safeXEvent;
@@ -79,6 +76,10 @@ namespace Xpand.Events.Benchmark {
         [Benchmark(Description = "`SafeOrderedXEvent.RemoveListener(listener);`")]
         public void SafeOrderedXEvent_Unsubscribe() {
             for (int i = 0; i < _listeners.Length; i++) _safeOrderedXEvent.RemoveListener(_listeners[i]);
+        }
+
+        protected virtual void OnDefaultEvent() {
+            DefaultEvent?.Invoke();
         }
     }
 }

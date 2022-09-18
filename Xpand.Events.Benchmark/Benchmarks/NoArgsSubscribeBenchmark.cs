@@ -10,12 +10,9 @@ namespace Xpand.Events.Benchmark {
         
         [Params(10, 50, 100, 1000, 10000)]
         public int SubscriptionCount { get; set; }
-
-// Disable method is never invoked warning
-#pragma warning disable CS0067 
-        private event Event DefaultEvent;
-#pragma warning restore CS0067
         
+        private event Event DefaultEvent;
+
         private XEvent _xEvent;
         private SafeXEvent _safeXEvent;
         private OrderedXEvent _orderedXEvent;
@@ -69,6 +66,10 @@ namespace Xpand.Events.Benchmark {
         [Benchmark(Description = "`SafeOrderedXEvent.AddListener(listener);`")]
         public void SafeOrderedXEvent_Subscribe() {
             for (int i = 0; i < _listeners.Length; i++) _safeOrderedXEvent.AddListener(_listeners[i]);
+        }
+
+        protected virtual void OnDefaultEvent() {
+            DefaultEvent?.Invoke();
         }
     }
 }
