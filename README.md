@@ -9,11 +9,11 @@ The addition to default .NET events, that solve some of it's problems.
 # Table of contents
  * [Requirements](#requirements)
  * [Hot to use](#how-to-use)
- * [Event usage patterns]
-   * [Implicit pattern]
-   * [Class arguments pattern]
-   * [Tuple arguments pattern]
-   * [Record arguments pattern]
+ * [Event usage patterns](#event-usage-patterns)
+   * [Implicit pattern](#implicit-pattern)
+   * [Class arguments pattern](#class-arguments-pattern)
+   * [Tuple arguments pattern](#tuple-arguments-pattern)
+   * [Record arguments pattern](#record-arguments-pattern)
  * [Install](#install)
    * [Assembly DLL](#install-assembly)
    * [Nuget package](#install-nuget)
