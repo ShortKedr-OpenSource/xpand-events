@@ -2,9 +2,11 @@
 9. Remove unique listener function since it makes bugs with inline listeners
 5. XUniqueEvent
 6. Add xml docs to public content
-2. Async/Await Events?
-3. Async/Callback Events?
-4. Multithreading Events?
+7. Auto disposing mechanism / allocating mechanism
+8. Check issues with auto disposing
+9. Async/Await Events?
+10. Async/Callback Events?
+11. Multithreading Events?
 
 ### Benchmark
 1. Benchmarks for events with args: ```object sender, string newValue```
