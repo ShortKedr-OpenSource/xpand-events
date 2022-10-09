@@ -1,6 +1,5 @@
 ﻿# Xpand Events
-Xpand-Project events realization.  
-The addition to default .NET events, that solve some of it's problems.
+.NET event library. Alternative for default events. Part of Xpand project
 
 # Xpand-Project links
 - [Xpand-Events](https://github.com/ShortKedr-OpenSource/xpand-events)
