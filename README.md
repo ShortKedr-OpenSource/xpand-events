@@ -1,9 +1,10 @@
-﻿# Xpand Events
-.NET event library. Alternative for default events. Part of Xpand project
+# Xpand Events
+.NET weak event library. Alternative for default events. Part of Xpand project
 
 # Xpand-Project links
 - [Xpand-Events](https://github.com/ShortKedr-OpenSource/xpand-events)
 
+#Summary
 
 # Table of contents
  * [Requirements](#requirements)
