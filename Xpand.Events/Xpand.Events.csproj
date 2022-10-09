@@ -43,20 +43,20 @@
         <DesignTime>True</DesignTime>
         <DependentUpon>XEvent.tt</DependentUpon>
       </Compile>
-      <Compile Update="Generated\OrderedXEvent.cs">
+      <Compile Update="Generated\SafeXEvent.cs">
         <AutoGen>True</AutoGen>
         <DesignTime>True</DesignTime>
-        <DependentUpon>OrderedXEvent.tt</DependentUpon>
+        <DependentUpon>SafeXEvent.tt</DependentUpon>
       </Compile>
       <Compile Update="Generated\SafeOrderedXEvent.cs">
         <AutoGen>True</AutoGen>
         <DesignTime>True</DesignTime>
         <DependentUpon>SafeOrderedXEvent.tt</DependentUpon>
       </Compile>
-      <Compile Update="Generated\SafeXEvent.cs">
+      <Compile Update="Generated\OrderedXEvent.cs">
         <AutoGen>True</AutoGen>
         <DesignTime>True</DesignTime>
-        <DependentUpon>SafeXEvent.tt</DependentUpon>
+        <DependentUpon>OrderedXEvent.tt</DependentUpon>
       </Compile>
     </ItemGroup>
 

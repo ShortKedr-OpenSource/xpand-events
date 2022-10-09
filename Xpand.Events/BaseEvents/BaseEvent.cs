@@ -10,16 +10,14 @@ namespace Xpand.Events {
     /// <typeparam name="T">event delegate type</typeparam>
     public abstract class BaseEvent<T> : ISuspendable where T : Delegate {
 
-        protected List<T> _subscriptions;
-        protected HashSet<T> _subscriptionsCache;
+        private List<T> _subscriptions;
+        private HashSet<T> _subscriptionsCache;
         private bool _isSuspended;
-
-
+        
+        
         public bool IsSuspended => _isSuspended;
 
-        public T[] Subscriptions => _subscriptions.ToArray();
         
-
         public BaseEvent() {
             _subscriptions = new List<T>(XpandEventsConfig.DefaultSubscriptionsBuffer);
             _subscriptionsCache = new HashSet<T>();
@@ -50,7 +48,12 @@ namespace Xpand.Events {
         public void Unsuspend() {
             _isSuspended = false;
         }
-        
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public T[] GetImmutableSubscriptionArray() {
+            return _subscriptions.ToArray();
+        }
+
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         protected void PrepareInvoke() {
             RemoveNullSubscriptions();

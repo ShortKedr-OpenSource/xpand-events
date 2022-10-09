@@ -13,8 +13,9 @@ namespace Xpand.Events {
         public void Invoke(<#= BuildTemplateMethodParams(i) #>){
             if (IsSuspended) return;
             PrepareInvoke();
-            for (int i = 0; i < _subscriptions.Count; i++) {
-                _subscriptions[i].Invoke(<#= BuildTemplateUseParams(i) #>);
+            var subscriptions = GetImmutableSubscriptionArray();
+            for (int i = 0; i < subscriptions.Length; i++) {
+                subscriptions[i].Invoke(<#= BuildTemplateUseParams(i) #>);
             }
         }
 

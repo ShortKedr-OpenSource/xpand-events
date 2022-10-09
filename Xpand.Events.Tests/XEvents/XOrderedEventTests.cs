@@ -34,7 +34,7 @@ namespace Xpand.Events.Tests {
             OrderedXEvent ev = new OrderedXEvent();
             ev.AddListener(null);
             ev.Invoke();
-            Assert.IsTrue(ev.Subscriptions.Length == 0);
+            Assert.IsTrue(ev.GetImmutableSubscriptionArray().Length == 0);
         }
 
         [Test]
@@ -84,7 +84,7 @@ namespace Xpand.Events.Tests {
             ev.AddListener(l8, 1);
             ev.AddListener(l9, 2);
             
-            var subscriptions = ev.Subscriptions;
+            var subscriptions = ev.GetImmutableSubscriptionArray();
             if (subscriptions.Length != 9) Assert.Fail($"Expected count: 9; Real count:{subscriptions.Length}");
             for (int i = 0; i < subscriptions.Length; i++) subscriptions[i].Invoke();
             

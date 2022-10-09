@@ -32,7 +32,7 @@ namespace Xpand.Events.Tests {
             XEvent ev = new XEvent();
             ev.AddListener(null);
             ev.Invoke();
-            Assert.IsTrue(ev.Subscriptions.Length == 0);
+            Assert.IsTrue(ev.GetImmutableSubscriptionArray().Length == 0);
         }
 
         [Test]

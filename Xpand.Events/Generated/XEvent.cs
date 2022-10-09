@@ -7,8 +7,9 @@ namespace Xpand.Events {
         public void Invoke(){
             if (IsSuspended) return;
             PrepareInvoke();
-            for (int i = 0; i < _subscriptions.Count; i++) {
-                _subscriptions[i].Invoke();
+            var subscriptions = GetImmutableSubscriptionArray();
+            for (int i = 0; i < subscriptions.Length; i++) {
+                subscriptions[i].Invoke();
             }
         }
 
@@ -19,8 +20,9 @@ namespace Xpand.Events {
         public void Invoke(T value){
             if (IsSuspended) return;
             PrepareInvoke();
-            for (int i = 0; i < _subscriptions.Count; i++) {
-                _subscriptions[i].Invoke(value);
+            var subscriptions = GetImmutableSubscriptionArray();
+            for (int i = 0; i < subscriptions.Length; i++) {
+                subscriptions[i].Invoke(value);
             }
         }
 
@@ -31,8 +33,9 @@ namespace Xpand.Events {
         public void Invoke(T1 value1, T2 value2){
             if (IsSuspended) return;
             PrepareInvoke();
-            for (int i = 0; i < _subscriptions.Count; i++) {
-                _subscriptions[i].Invoke(value1, value2);
+            var subscriptions = GetImmutableSubscriptionArray();
+            for (int i = 0; i < subscriptions.Length; i++) {
+                subscriptions[i].Invoke(value1, value2);
             }
         }
 
@@ -43,8 +46,9 @@ namespace Xpand.Events {
         public void Invoke(T1 value1, T2 value2, T3 value3){
             if (IsSuspended) return;
             PrepareInvoke();
-            for (int i = 0; i < _subscriptions.Count; i++) {
-                _subscriptions[i].Invoke(value1, value2, value3);
+            var subscriptions = GetImmutableSubscriptionArray();
+            for (int i = 0; i < subscriptions.Length; i++) {
+                subscriptions[i].Invoke(value1, value2, value3);
             }
         }
 
@@ -55,8 +59,9 @@ namespace Xpand.Events {
         public void Invoke(T1 value1, T2 value2, T3 value3, T4 value4){
             if (IsSuspended) return;
             PrepareInvoke();
-            for (int i = 0; i < _subscriptions.Count; i++) {
-                _subscriptions[i].Invoke(value1, value2, value3, value4);
+            var subscriptions = GetImmutableSubscriptionArray();
+            for (int i = 0; i < subscriptions.Length; i++) {
+                subscriptions[i].Invoke(value1, value2, value3, value4);
             }
         }
 
@@ -67,8 +72,9 @@ namespace Xpand.Events {
         public void Invoke(T1 value1, T2 value2, T3 value3, T4 value4, T5 value5){
             if (IsSuspended) return;
             PrepareInvoke();
-            for (int i = 0; i < _subscriptions.Count; i++) {
-                _subscriptions[i].Invoke(value1, value2, value3, value4, value5);
+            var subscriptions = GetImmutableSubscriptionArray();
+            for (int i = 0; i < subscriptions.Length; i++) {
+                subscriptions[i].Invoke(value1, value2, value3, value4, value5);
             }
         }
 
@@ -79,8 +85,9 @@ namespace Xpand.Events {
         public void Invoke(T1 value1, T2 value2, T3 value3, T4 value4, T5 value5, T6 value6){
             if (IsSuspended) return;
             PrepareInvoke();
-            for (int i = 0; i < _subscriptions.Count; i++) {
-                _subscriptions[i].Invoke(value1, value2, value3, value4, value5, value6);
+            var subscriptions = GetImmutableSubscriptionArray();
+            for (int i = 0; i < subscriptions.Length; i++) {
+                subscriptions[i].Invoke(value1, value2, value3, value4, value5, value6);
             }
         }
 
@@ -91,8 +98,9 @@ namespace Xpand.Events {
         public void Invoke(T1 value1, T2 value2, T3 value3, T4 value4, T5 value5, T6 value6, T7 value7){
             if (IsSuspended) return;
             PrepareInvoke();
-            for (int i = 0; i < _subscriptions.Count; i++) {
-                _subscriptions[i].Invoke(value1, value2, value3, value4, value5, value6, value7);
+            var subscriptions = GetImmutableSubscriptionArray();
+            for (int i = 0; i < subscriptions.Length; i++) {
+                subscriptions[i].Invoke(value1, value2, value3, value4, value5, value6, value7);
             }
         }
 
@@ -103,8 +111,9 @@ namespace Xpand.Events {
         public void Invoke(T1 value1, T2 value2, T3 value3, T4 value4, T5 value5, T6 value6, T7 value7, T8 value8){
             if (IsSuspended) return;
             PrepareInvoke();
-            for (int i = 0; i < _subscriptions.Count; i++) {
-                _subscriptions[i].Invoke(value1, value2, value3, value4, value5, value6, value7, value8);
+            var subscriptions = GetImmutableSubscriptionArray();
+            for (int i = 0; i < subscriptions.Length; i++) {
+                subscriptions[i].Invoke(value1, value2, value3, value4, value5, value6, value7, value8);
             }
         }
 
@@ -115,8 +124,9 @@ namespace Xpand.Events {
         public void Invoke(T1 value1, T2 value2, T3 value3, T4 value4, T5 value5, T6 value6, T7 value7, T8 value8, T9 value9){
             if (IsSuspended) return;
             PrepareInvoke();
-            for (int i = 0; i < _subscriptions.Count; i++) {
-                _subscriptions[i].Invoke(value1, value2, value3, value4, value5, value6, value7, value8, value9);
+            var subscriptions = GetImmutableSubscriptionArray();
+            for (int i = 0; i < subscriptions.Length; i++) {
+                subscriptions[i].Invoke(value1, value2, value3, value4, value5, value6, value7, value8, value9);
             }
         }
 
@@ -127,8 +137,9 @@ namespace Xpand.Events {
         public void Invoke(T1 value1, T2 value2, T3 value3, T4 value4, T5 value5, T6 value6, T7 value7, T8 value8, T9 value9, T10 value10){
             if (IsSuspended) return;
             PrepareInvoke();
-            for (int i = 0; i < _subscriptions.Count; i++) {
-                _subscriptions[i].Invoke(value1, value2, value3, value4, value5, value6, value7, value8, value9, value10);
+            var subscriptions = GetImmutableSubscriptionArray();
+            for (int i = 0; i < subscriptions.Length; i++) {
+                subscriptions[i].Invoke(value1, value2, value3, value4, value5, value6, value7, value8, value9, value10);
             }
         }
 
@@ -139,8 +150,9 @@ namespace Xpand.Events {
         public void Invoke(T1 value1, T2 value2, T3 value3, T4 value4, T5 value5, T6 value6, T7 value7, T8 value8, T9 value9, T10 value10, T11 value11){
             if (IsSuspended) return;
             PrepareInvoke();
-            for (int i = 0; i < _subscriptions.Count; i++) {
-                _subscriptions[i].Invoke(value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11);
+            var subscriptions = GetImmutableSubscriptionArray();
+            for (int i = 0; i < subscriptions.Length; i++) {
+                subscriptions[i].Invoke(value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11);
             }
         }
 
@@ -151,8 +163,9 @@ namespace Xpand.Events {
         public void Invoke(T1 value1, T2 value2, T3 value3, T4 value4, T5 value5, T6 value6, T7 value7, T8 value8, T9 value9, T10 value10, T11 value11, T12 value12){
             if (IsSuspended) return;
             PrepareInvoke();
-            for (int i = 0; i < _subscriptions.Count; i++) {
-                _subscriptions[i].Invoke(value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12);
+            var subscriptions = GetImmutableSubscriptionArray();
+            for (int i = 0; i < subscriptions.Length; i++) {
+                subscriptions[i].Invoke(value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12);
             }
         }
 
@@ -163,8 +176,9 @@ namespace Xpand.Events {
         public void Invoke(T1 value1, T2 value2, T3 value3, T4 value4, T5 value5, T6 value6, T7 value7, T8 value8, T9 value9, T10 value10, T11 value11, T12 value12, T13 value13){
             if (IsSuspended) return;
             PrepareInvoke();
-            for (int i = 0; i < _subscriptions.Count; i++) {
-                _subscriptions[i].Invoke(value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12, value13);
+            var subscriptions = GetImmutableSubscriptionArray();
+            for (int i = 0; i < subscriptions.Length; i++) {
+                subscriptions[i].Invoke(value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12, value13);
             }
         }
 
@@ -175,8 +189,9 @@ namespace Xpand.Events {
         public void Invoke(T1 value1, T2 value2, T3 value3, T4 value4, T5 value5, T6 value6, T7 value7, T8 value8, T9 value9, T10 value10, T11 value11, T12 value12, T13 value13, T14 value14){
             if (IsSuspended) return;
             PrepareInvoke();
-            for (int i = 0; i < _subscriptions.Count; i++) {
-                _subscriptions[i].Invoke(value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12, value13, value14);
+            var subscriptions = GetImmutableSubscriptionArray();
+            for (int i = 0; i < subscriptions.Length; i++) {
+                subscriptions[i].Invoke(value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12, value13, value14);
             }
         }
 
@@ -187,8 +202,9 @@ namespace Xpand.Events {
         public void Invoke(T1 value1, T2 value2, T3 value3, T4 value4, T5 value5, T6 value6, T7 value7, T8 value8, T9 value9, T10 value10, T11 value11, T12 value12, T13 value13, T14 value14, T15 value15){
             if (IsSuspended) return;
             PrepareInvoke();
-            for (int i = 0; i < _subscriptions.Count; i++) {
-                _subscriptions[i].Invoke(value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12, value13, value14, value15);
+            var subscriptions = GetImmutableSubscriptionArray();
+            for (int i = 0; i < subscriptions.Length; i++) {
+                subscriptions[i].Invoke(value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12, value13, value14, value15);
             }
         }
 
@@ -199,8 +215,9 @@ namespace Xpand.Events {
         public void Invoke(T1 value1, T2 value2, T3 value3, T4 value4, T5 value5, T6 value6, T7 value7, T8 value8, T9 value9, T10 value10, T11 value11, T12 value12, T13 value13, T14 value14, T15 value15, T16 value16){
             if (IsSuspended) return;
             PrepareInvoke();
-            for (int i = 0; i < _subscriptions.Count; i++) {
-                _subscriptions[i].Invoke(value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12, value13, value14, value15, value16);
+            var subscriptions = GetImmutableSubscriptionArray();
+            for (int i = 0; i < subscriptions.Length; i++) {
+                subscriptions[i].Invoke(value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12, value13, value14, value15, value16);
             }
         }
 
